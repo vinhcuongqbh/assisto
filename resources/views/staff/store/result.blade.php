@@ -21,9 +21,9 @@
                                 <tr>
                                     <th style="text-align: center">{{ __('storeID') }}</th>
                                         <th style="text-align: center">{{ __('storeName') }}</th>
-                                        <th style="text-align: center">{{ __('Address') }}</th>
-                                        <th style="text-align: center">{{ __('Telephone') }}</th>
-                                        <th style="text-align: center">{{ __('Center') }}</th>
+                                        <th style="text-align: center">{{ __('address') }}</th>
+                                        <th style="text-align: center">{{ __('telephone') }}</th>
+                                        <th style="text-align: center">{{ __('centerName') }}</th>
                                 </tr>
                             </thead>
                             <tbody>

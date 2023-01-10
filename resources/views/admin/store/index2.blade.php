@@ -21,30 +21,6 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <form action="{{ route('store.search') }}" method="post" id="store-search">
-                            @csrf
-                            <div class="row">
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="storeID" name="storeID" placeholder="{{ __('storeID') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="storeName" name="storeName" placeholder="{{ __('storeName') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="{{ __('address') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="telephone" name="telephone" placeholder="{{ __('telephone') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="centerID" name="centerID" placeholder="{{ __('centerID') }}">
-                                </div>
-                                <div class="col-12 col-xl-2 my-2">
-                                    <button type="submit" class="btn bg-olive text-white w-100">{{ __('search') }}</button>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-                        </form>
                         <table id="store-table" class="table table-bordered table-striped">
                             <colgroup>
                                 <col style="width:10%;">
@@ -139,10 +115,10 @@
                 "responsive": true,
                 "lengthChange": false,
                 "pageLength": 25,
-                "searching": false,
+                "searching": true,
                 "autoWidth": false,
                 "ordering": false,
-                //"buttons": ["copy", "excel", "pdf", "print"],
+                "buttons": ["copy", "excel", "pdf", "print"],
                 // "language": {
                 //     "search": "Tìm kiếm:",
                 //     "emptyTable": "Không có dữ liệu phù hợp",

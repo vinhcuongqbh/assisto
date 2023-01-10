@@ -36,7 +36,7 @@ class StoreController extends Controller
             'storeId' => 'required|unique:App\Models\Store,storeId',
             'storeName' => 'required',
             'centerId' => 'required',
-            'inputFile' => ['required|mimes:pdf']
+            'inputFile' => ['required','mimes:pdf']
         ]);
 
         //Xử lý đường dẫn File
@@ -102,7 +102,7 @@ class StoreController extends Controller
             ],
             'storeName' => 'required',
             'centerId' => 'required',
-            'inputFile' => ['required|mimes:pdf']
+            'inputFile' => ['required','mimes:pdf']
         ]);
 
         //Xử lý đường dẫn File
@@ -149,13 +149,14 @@ class StoreController extends Controller
         $store = Store::query();
 
         if (isset($request->storeID)) $store->where('storeId', $request->storeID);
-        if (isset($request->storeName)) $store->where('storeName', $request->storeName);
+        if (isset($request->storeName)) $store->where('storeName', 'LIKE', '%'.$request->storeName.'%');
         if (isset($request->address)) $store->where('storeAddr', 'LIKE', '%'.$request->address.'%');
         if (isset($request->telephone)) $store->where('storeTel', $request->telephone);        
         if (isset($request->centerID)) $store->where('centerId', $request->centerID);
         
         $store = $store->get(); 
         
-        return view('staff.store.result', ['stores' => $store]);
+        if (Auth::user()->roleId != 3) return view('admin.store.result', ['stores' => $store]);
+        else return view('staff.store.result', ['stores' => $store]);
     }
 }

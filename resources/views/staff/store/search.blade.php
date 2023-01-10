@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <!-- form start -->
-                    <form class="form-horizontal" action="{{ route('staff.store.search') }}" method="get"
+                    <form class="form-horizontal" action="{{ route('staff.store.search') }}" method="post"
                         id="store-search">
                         @csrf
                         <div class="card-body">

@@ -64,7 +64,7 @@
                                     <th>{{ __('delete') }}</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody>                               
                                 @foreach ($stores as $store)
                                     <tr>
                                         <td style="text-align: center"><a

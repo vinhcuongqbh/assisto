@@ -58,6 +58,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('{id}/update', [StoreController::class, 'update'])->name('store.update');
         Route::get('{id}/delete', [StoreController::class, 'destroy'])->name('store.delete');
         Route::get('{id}/restore', [StoreController::class, 'restore'])->name('store.restore');
+        Route::post('search', [StoreController::class, 'search'])->name('store.search');
     });
 
     Route::group(['prefix' => 'route'], function () {
@@ -120,7 +121,7 @@ Route::prefix('staff')->middleware('auth')->group(function () {
         Route::get('create', [StoreController::class, 'create'])->name('staff.store.create');
         Route::post('store', [StoreController::class, 'store'])->name('staff.store.store');
         Route::post('{id}/update', [StoreController::class, 'update'])->name('staff.store.update');
-        Route::get('{search', [StoreController::class, 'search'])->name('staff.store.search');
+        Route::post('search', [StoreController::class, 'search'])->name('staff.store.search');
         Route::get('{id}/delete', [StoreController::class, 'destroy'])->name('staff.store.delete');
     });
 
