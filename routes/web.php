@@ -36,6 +36,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('{id}/delete', [UserController::class, 'destroy'])->name('user.delete');
         Route::get('{id}/restore', [UserController::class, 'restore'])->name('user.restore');
         Route::post('{id}/resetpass', [UserController::class, 'resetpass'])->name('user.resetpass');
+        Route::post('search', [UserController::class, 'search'])->name('user.search');
     });
 
     Route::group(['prefix' => 'center'], function () {

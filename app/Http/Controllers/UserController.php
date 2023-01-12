@@ -158,4 +158,20 @@ class UserController extends Controller
 
         return redirect()->route('user.show', ['id' => $user->userId]);
     }
+
+
+    public function search(Request $request)
+    {
+        $user = User::query();
+
+        if (isset($request->userID)) $user->where('userId', $request->userID);
+        if (isset($request->userName)) $user->where('name', 'LIKE', '%'.$request->userName.'%');
+       
+        
+        $user = $user->get(); 
+        
+        if (Auth::user()->roleId != 3) return view('admin.user.result', ['users' => $user]);        
+    }
+
+
 }
