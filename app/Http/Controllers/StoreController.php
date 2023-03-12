@@ -102,10 +102,8 @@ class StoreController extends Controller
             ->select('asahi_store.*', 'asahi_center.centerName')
             ->first();
 
-        $storeMedia = StoreMedia::where('storeId', $id)->get();
-
-        if (Auth::user()->roleId != 3) return view('admin.store.show', ['store' => $store, 'storeMedias' => $storeMedia]);
-        else return view('staff.store.show', ['store' => $store, 'storeMedias' => $storeMedia]);
+        if (Auth::user()->roleId != 3) return view('admin.store.show', ['store' => $store]);
+        else return view('staff.store.show', ['store' => $store]);
     }
 
 
