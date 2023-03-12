@@ -1,0 +1,17 @@
+.asabo-main-body{
+    -ms-flex-align: center;
+    align-items: center;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.asabo-box{
+    max-width: 100%;
+    margin-top: .5rem;
+    margin-bottom: 0;
+    padding: 5px;
+}
+
