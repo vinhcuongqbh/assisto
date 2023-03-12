@@ -91,8 +91,8 @@ class AccidentController extends Controller
             }
         }
         if ($request->hasFile('frontCar')) $this->uploadImage($request->file('frontCar'), 0, 1, $accident->acc_id);
-        if ($request->hasFile('fullCar')) $this->uploadImage($request->file('fullVictimCar'), 0, 2, $accident->acc_id);
-        if ($request->hasFile('damagePart')) $this->uploadImage($request->file('victimDamagePart'), 0, 3, $accident->acc_id);
+        if ($request->hasFile('fullCar')) $this->uploadImage($request->file('fullCar'), 0, 2, $accident->acc_id);
+        if ($request->hasFile('damagePart')) $this->uploadImage($request->file('damagePart'), 0, 3, $accident->acc_id);
         if ($request->hasFile('addImage')) {
             foreach ($request->file('addImage') as $addImage) {
                 $this->uploadImage($addImage, 0, 4, $accident->acc_id);
@@ -188,8 +188,8 @@ class AccidentController extends Controller
             }
         }
         if ($request->hasFile('frontCar')) $this->uploadImage($request->file('frontCar'), 0, 1, $accident->acc_id);
-        if ($request->hasFile('fullCar')) $this->uploadImage($request->file('fullVictimCar'), 0, 2, $accident->acc_id);
-        if ($request->hasFile('damagePart')) $this->uploadImage($request->file('victimDamagePart'), 0, 3, $accident->acc_id);
+        if ($request->hasFile('fullCar')) $this->uploadImage($request->file('fullCar'), 0, 2, $accident->acc_id);
+        if ($request->hasFile('damagePart')) $this->uploadImage($request->file('damagePart'), 0, 3, $accident->acc_id);
         if ($request->hasFile('addImage')) {
             foreach ($request->file('addImage') as $addImage) {
                 $this->uploadImage($addImage, 0, 4, $accident->acc_id);
