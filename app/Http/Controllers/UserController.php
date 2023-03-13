@@ -23,14 +23,14 @@ class UserController extends Controller
                 ->leftjoin('asahi_center', 'asahi_center.centerId', 'moz_users.centerId')
                 ->where('moz_users.roleId', '<>', 1)
                 ->select('moz_users.*', 'moz_roles.roleName', 'asahi_center.centerName')
-                ->orderBy('userId', 'desc')
+                ->orderBy('userId', 'asc')
                 ->get();
         } else {
             //Hiển thị danh sách Tài khoản đang sử dụng
             $user = User::leftjoin('moz_roles', 'moz_roles.roleId', 'moz_users.roleId')
                 ->leftjoin('asahi_center', 'asahi_center.centerId', 'moz_users.centerId')
                 ->select('moz_users.*', 'moz_roles.roleName', 'asahi_center.centerName')
-                ->orderBy('userId', 'desc')
+                ->orderBy('userId', 'asc')
                 ->get();
         }
 

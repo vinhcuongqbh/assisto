@@ -40,11 +40,6 @@
                                             <input type="time" class="form-control" id="time" name="time"
                                                 value="{{ $accident->acc_time }}">
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label">{{ __('coordinates') }}</label>
-                                            <input type="text" class="form-control" id="coordinates" name="coordinates"
-                                                value="{{ $accident->acc_coordinates }}">
-                                        </div>
                                         <div class="row hide-on-desktop">
                                             <input type="text" name="lat_pos" id="lat_pos" hidden/>
                                             <input type="text" name="long_pos" id="long_pos" hidden/>

@@ -62,6 +62,7 @@ class AccidentController extends Controller
         $accident->staff_id = Auth::id();
         $accident->acc_date = $request->date;
         $accident->acc_time = $request->time;
+        $accident->acc_coordinates = $request->lat_pos.",".$request->long_pos;
         $accident->acc_involved_people_name = $request->peopleName;
         $accident->acc_involved_people_addr = $request->peopleAddress;
         $accident->acc_involved_people_tel = $request->peopleTelephone;

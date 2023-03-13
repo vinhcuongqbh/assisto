@@ -22,7 +22,7 @@ class StoreController extends Controller
     {
         $store = Store::leftjoin('asahi_center', 'asahi_center.centerId', 'asahi_store.centerId')
             ->select('asahi_store.*', 'asahi_center.centerName')
-            ->orderby('storeId', 'desc')
+            ->orderby('storeId', 'asc')
             ->get();
 
         return view('admin.store.index', ['stores' => $store]);

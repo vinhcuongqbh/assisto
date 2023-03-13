@@ -50,7 +50,8 @@
                                                     {{ __('coordinates') }}
                                                 </td>
                                                 <td style="width: 70%">
-                                                    {{ $accident->acc_coordinates }}
+                                                    <a
+                                                        href="https://www.google.com/maps/place/{{ $accident->acc_coordinates }}">Go to Google Map</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -176,10 +177,6 @@
                                         <div class="form-group row">
                                             <label class="col-form-label">2. {{ __('fullCar') }}</label>
                                             @if (isset($accidentMedias))
-                                                <?php
-                                                $i = 1;
-                                                $img = ['jpg', 'jpeg', 'png', 'bmp'];
-                                                ?>
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)
@@ -199,10 +196,6 @@
                                         <div class="form-group row">
                                             <label class="col-form-label">3. {{ __('damagePart') }}</label>
                                             @if (isset($accidentMedias))
-                                                <?php
-                                                $i = 1;
-                                                $img = ['jpg', 'jpeg', 'png', 'bmp'];
-                                                ?>
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)
@@ -222,10 +215,6 @@
                                         <div class="form-group row">
                                             <label class="col-form-label">4. {{ __('addImage') }}</label>
                                             @if (isset($accidentMedias))
-                                                <?php
-                                                $i = 1;
-                                                $img = ['jpg', 'jpeg', 'png', 'bmp'];
-                                                ?>
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)
@@ -256,10 +245,6 @@
                                         <div class="form-group row">
                                             <label class="col-form-label">1. {{ __('frontCar') }}</label>
                                             @if (isset($accidentMedias))
-                                                <?php
-                                                $i = 1;
-                                                $img = ['jpg', 'jpeg', 'png', 'bmp'];
-                                                ?>
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)
@@ -279,10 +264,6 @@
                                         <div class="form-group row">
                                             <label class="col-form-label">2. {{ __('fullCar') }}</label>
                                             @if (isset($accidentMedias))
-                                                <?php
-                                                $i = 1;
-                                                $img = ['jpg', 'jpeg', 'png', 'bmp'];
-                                                ?>
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)
@@ -302,10 +283,6 @@
                                         <div class="form-group row">
                                             <label class="col-form-label">3. {{ __('damagePart') }}</label>
                                             @if (isset($accidentMedias))
-                                                <?php
-                                                $i = 1;
-                                                $img = ['jpg', 'jpeg', 'png', 'bmp'];
-                                                ?>
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)
@@ -325,10 +302,6 @@
                                         <div class="form-group row">
                                             <label class="col-form-label">4. {{ __('addImage') }}</label>
                                             @if (isset($accidentMedias))
-                                                <?php
-                                                $i = 1;
-                                                $img = ['jpg', 'jpeg', 'png', 'bmp'];
-                                                ?>
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)

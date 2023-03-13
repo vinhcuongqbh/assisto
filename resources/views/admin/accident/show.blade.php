@@ -50,7 +50,9 @@
                                                     {{ __('coordinates') }}
                                                 </td>
                                                 <td style="width: 70%">
-                                                    {{ $accident->acc_coordinates }}
+                                                    <a
+                                                        href="https://www.google.com/maps/place/{{ $accident->acc_coordinates }}">Go
+                                                        to Google Map</a>
                                                 </td>
                                             </tr>
                                         </tbody>

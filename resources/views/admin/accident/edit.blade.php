@@ -40,11 +40,6 @@
                                             <input type="time" class="form-control" id="time" name="time"
                                                 value="{{ $accident->acc_time }}">
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-form-label">{{ __('coordinates') }}</label>
-                                            <input type="text" class="form-control" id="coordinates" name="coordinates"
-                                                value="{{ $accident->acc_coordinates }}">
-                                        </div>
                                         <div class="row">
                                             <a class="btn btn-success w-100 btn-lg"><i class="fa fa-plus"></i>
                                                 {{ __('getCoordinates') }}</a>
