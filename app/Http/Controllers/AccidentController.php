@@ -8,6 +8,9 @@ use App\Models\Accident;
 use App\Models\AccidentMedia;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
+
+
 
 
 class AccidentController extends Controller
@@ -272,10 +275,15 @@ class AccidentController extends Controller
         //$filename = $file->getClientOriginalName();
         $extension = $image->getClientOriginalExtension();
         $check = in_array($extension, $allowedfileExtension);
-
         if ($check) {
-            $path = $image->store('public/File');
-            $path = substr($path, strlen('public/'));
+            $imgName = Auth::user()->id.uniqid();     
+            $img = Image::make($image->path());      
+            $img->resize(2000, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save('../public/storage/File/'.$imgName.'.'.$extension);
+
+            //$path = $image->store('public/File');
+            $path = "File/".$imgName.".".$extension;
             $accidentMedia = new AccidentMedia();
             $accidentMedia->acc_media_url = $path;
             $accidentMedia->acc_media_owner = $owner;
