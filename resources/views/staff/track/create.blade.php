@@ -81,7 +81,7 @@
                             <div class="form-group row">
                                 <label class="col-12 col-md-2 col-form-label">{{ __('attachment') }}</label>
                                 <div class="col-12 col-md-10">
-                                    <a id="cameraButton" class="btn btn-success m-1 hide-on-desktop" href='javascript:;' onclick='takePicture();'><i class="fa fa-video"></i> 写真を撮る</a>
+                                    <a id="cameraButton" class="btn btn-success mb-1 hide-on-desktop" href='javascript:;' onclick='takePicture();'><i class="fa fa-video"></i> 写真を撮る</a>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="files[]" multiple capture=camera"/>

@@ -29,22 +29,25 @@
                         <div class="card-body">
                             <div>
                                 <p class="text-bold">1. 負傷者の救護</p>
-                                <p>&ensp; <input type="checkbox" id="checkbox1" onclick="myFunction()">
+                                <p>&ensp; <input type="checkbox" class="my-checkbox-x2" id="checkbox1" onclick="myFunction()">
                                     けが人がいないか確認し、けが人がいる場合は消防（119）に連絡する。可能な応急処置を行う。</p>
                                 <p class="text-bold">2. 事故の続発防止措置</p>
-                                <p>&ensp; <input type="checkbox" id="checkbox2" onclick="myFunction()"> 車の移動</p>
-                                <p>&ensp; <input type="checkbox" id="checkbox3" onclick="myFunction()"> 後続車の誘導</p>
-                                <p>&ensp; <input type="checkbox" id="checkbox4" onclick="myFunction()"> 道路上の障害物の除去等</p>
+                                <p>&ensp; <input type="checkbox" class="my-checkbox-x2" id="checkbox2" onclick="myFunction()"> 車の移動</p>
+                                <p>&ensp; <input type="checkbox" class="my-checkbox-x2" id="checkbox3" onclick="myFunction()"> 後続車の誘導</p>
+                                <p>&ensp; <input type="checkbox" class="my-checkbox-x2" id="checkbox4" onclick="myFunction()"> 道路上の障害物の除去等</p>
                                 <p>&ensp; ※ただし続発事故の危険がない場合、事故車は動かさないほうがよい。</p>
                                 <p class="text-bold">3. 警察への報告</p>
-                                <p>&ensp; <input type="checkbox" id="checkbox5" onclick="myFunction()">
+                                <p>&ensp; <input type="checkbox" class="my-checkbox-x2" id="checkbox5" onclick="myFunction()">
                                     どんなに小さな事故でも報告の義務があります。</p>
-                                <p>&ensp; <input type="checkbox" id="checkbox6" onclick="myFunction()"> 警察への報告内容</p>
-                                <p>&emsp;&ensp; 交通事故発生の日時・場所</p>
-                                <p>&emsp;&ensp; 死傷者の数及び負傷者の負傷の程度( いる場合)</p>
-                                <p>&emsp;&ensp; 損壊したもの及びその損壊の程度</p>
-                                <p>&emsp;&ensp; その交通事故にかかわる車両などの積載物</p>
-                                <p>&emsp;&ensp; その事故に対して講じた措置警察官の名前もメモをとっておくこと。</p>
+                                <p>&ensp; <input type="checkbox" class="my-checkbox-x2" id="checkbox6" onclick="myFunction()"> 警察への報告内容</p>
+                                <ul>
+                                    <li>交通事故発生の日時・場所</li>
+                                    <li>死傷者の数及び負傷者の負傷の程度( いる場合)</li>
+                                    <li>損壊したもの及びその損壊の程度</li>
+                                    <li>その交通事故にかかわる車両などの積載物</li>
+                                    <li>その事故に対して講じた措置警察官の名前もメモをとっておくこと。</li>
+                                </ul>
+                                
                             </div>
                         </div><!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-center">                            
