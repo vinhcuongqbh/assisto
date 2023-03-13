@@ -80,30 +80,30 @@
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label">{{ __('companyContact') }}</label>
-                                            <input type="tel" class="form-control" id="companyContact"
+                                            <input type="text" class="form-control" id="companyContact"
                                                 name="companyContact"
                                                 value="{{ $accident->acc_involved_people_company_contact }}">
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label">{{ __('personInCharge') }}</label>
-                                            <input type="tel" class="form-control" id="personInCharge"
+                                            <input type="text" class="form-control" id="personInCharge"
                                                 name="personInCharge"
                                                 value="{{ $accident->acc_involved_people_person_in_charge }}">
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label">{{ __('carPlates') }}</label>
-                                            <input type="tel" class="form-control" id="carPlates" name="carPlates"
+                                            <input type="text" class="form-control" id="carPlates" name="carPlates"
                                                 value="{{ $accident->acc_involved_people_car_plates }}">
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label">{{ __('insuranceCompanyName') }}</label>
-                                            <input type="tel" class="form-control" id="insuranceCompanyName"
+                                            <input type="text" class="form-control" id="insuranceCompanyName"
                                                 name="insuranceCompanyName"
                                                 value="{{ $accident->acc_involved_people_insurance_company }}">
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label">{{ __('insuranceCompanyContact') }}</label>
-                                            <input type="tel" class="form-control" id="insuranceCompanyContact"
+                                            <input type="text" class="form-control" id="insuranceCompanyContact"
                                                 name="insuranceCompanyContact"
                                                 value="{{ $accident->acc_involved_people_insurance_company_contact }}">
                                         </div>
