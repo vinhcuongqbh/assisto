@@ -1,13 +1,13 @@
-@extends('layouts.master2')
+@extends('layouts.master')
 
-@section('title', 'Accident Report')
+@section('title', 'Accident Edit')
 
 @section('heading')
     {{ __('accidentReports') }}
 @stop
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-xl-12">
                 <div class="card card-default">
@@ -54,36 +54,36 @@
                             <div>
                                 <p>2. 相手方の確認</p>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('name') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('name') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="peopleName" name="peopleName"
                                             value="{{ $accidentPeople->acc_involved_people_name }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('address') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('address') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="peopleAddress" name="peopleAddress"
                                             value="{{ $accidentPeople->acc_involved_people_addr }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('contact') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('contact') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="peopleContact" name="peopleContact"
                                             value="{{ $accidentPeople->acc_involved_people_contact }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('telephone') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('telephone') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="tel" class="form-control" id="peopleTelephone"
                                             name="peopleTelephone" value="{{ $accidentPeople->acc_involved_people_tel }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('company') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('company') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="peopleCompany" name="peopleCompany"
                                             value="{{ $accidentPeople->acc_involved_people_company }}">
                                     </div>
@@ -91,16 +91,16 @@
 
                                 <p>※相手が建物、電柱、フェンスなどの器物の場合</p>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('name') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('name') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="otherPeopleName"
                                             name="otherPeopleName"
                                             value="{{ $accidentPeople->acc_involved_people_other }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('contact') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('contact') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="otherPeopleContact"
                                             name="otherPeopleContact"
                                             value="{{ $accidentPeople->acc_involved_people_other_contact }}">
@@ -113,29 +113,29 @@
                             <div>
                                 <p>3. ①相手方の車の確認</p>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('carNumberPalette') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('carNumberPalette') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="carNumberPalette"
                                             name="carNumberPalette" value="{{ $accidentCar->car_number_palette }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('carType') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('carType') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="carType" name="carType"
                                             value="{{ $accidentCar->car_type }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('carColor') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('carColor') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="carColor" name="carColor"
                                             value="{{ $accidentCar->car_color }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('carImage') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('carImage') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="carImage[]"
@@ -150,7 +150,7 @@
                                             $i = 1;
                                             $img = ['jpg', 'jpeg', 'png', 'bmp'];
                                             ?>
-                                            <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
+                                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
                                                 @foreach ($accidentCarMedias as $accidentCarMedia)
                                                     @if (in_array(substr($accidentCarMedia->car_media_url, -3), $img))
                                                         <div>
@@ -169,23 +169,23 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('carSpeed') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('carSpeed') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="carSpeed" name="carSpeed"
                                             value="{{ $accidentCar->car_speed }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label
-                                        class="col-12 col-md-2 col-form-label">{{ __('carRepairGarageAddress') }}</label>
-                                    <div class="col-12 col-md-10">
+                                        class="col-12 col-md-3 col-form-label">{{ __('carRepairGarageAddress') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="carRepairGarageAddress"
                                             name="carRepairGarageAddress" value="{{ $accidentCar->car_repair_garage }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('carRepairGarageTel') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('carRepairGarageTel') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="tel" class="form-control" id="carRepairGarageTel"
                                             name="carRepairGarageTel" value="{{ $accidentCar->car_repair_garage_tel }}">
                                     </div>
@@ -194,24 +194,24 @@
 
                                 <p>②自車の確認</p>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('carSpeed') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('carSpeed') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="ourTruckSpeed"
                                             name="ourTruckSpeed" value="{{ $accident->our_truck_speed }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label
-                                        class="col-12 col-md-2 col-form-label">{{ __('carRepairGarageAddress') }}</label>
-                                    <div class="col-12 col-md-10">
+                                        class="col-12 col-md-3 col-form-label">{{ __('carRepairGarageAddress') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="ourTruckRepairGarageAddress"
                                             name="ourTruckRepairGarageAddress"
                                             value="{{ $accident->our_truck_repair_garage_addr }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('carRepairGarageTel') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('carRepairGarageTel') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="tel" class="form-control" id="ourTruckRepairGarageTel"
                                             name="ourTruckRepairGarageTel"
                                             value="{{ $accident->our_truck_repair_garage_tel }}">
@@ -224,24 +224,24 @@
                             <div>
                                 <p>4. 相手方の保険会社の確認</p>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('insuranceCompanyName') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('insuranceCompanyName') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="insuranceCompanyName"
                                             name="insuranceCompanyName"
                                             value="{{ $accidentPeople->acc_involved_people_insurance_company }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('insuranceNumber') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('insuranceNumber') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="insuranceNumber"
                                             name="insuranceNumber"
                                             value="{{ $accidentPeople->acc_involved_people_insurance_number }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('insuranceImage') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('insuranceImage') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="insuranceImage[]"
@@ -256,7 +256,7 @@
                                             $i = 1;
                                             $img = ['jpg', 'jpeg', 'png', 'bmp'];
                                             ?>
-                                            <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
+                                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
                                                 @foreach ($accidentPeopleMedias as $accidentPeopleMedia)
                                                     @if (in_array(substr($accidentPeopleMedia->insurance_media_url, -3), $img))
                                                         <div>
@@ -282,8 +282,8 @@
                             <div>
                                 <p>5. 事故の状況と情報収集を図る</p>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('roadType') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('roadType') }}</label>
+                                    <div class="col-12 col-md-9">
                                         @foreach ($roadTypes as $roadType)
                                             <div class="form-group">
                                                 <div class="form-check">
@@ -299,77 +299,77 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('roadWidth') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('roadWidth') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="roadWidth" name="roadWidth"
                                             value="{{ $accident->onsite_road_width }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('outlook') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('outlook') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="outlook" name="outlook"
                                             value="{{ $accident->onsite_outlook }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('trafficSign') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('trafficSign') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="trafficSign" name="trafficSign"
                                             value="{{ $accident->onsite_traffic_signs }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('date') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('date') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="date" class="form-control" id="date" name="date"
                                             value="{{ $accident->acc_date }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('time') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('time') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="time" class="form-control" id="time" name="time"
                                             value="{{ $accident->acc_time }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('collisionPoint') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('collisionPoint') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="collisionPoint"
                                             name="collisionPoint" value="{{ $accident->onsite_collision_point }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('parkPosition') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('parkPosition') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="parkPosition" name="parkPosition"
                                             value="{{ $accident->onsite_park_position }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('victim') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('victim') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="victim" name="victim"
                                             value="{{ $accident->onsite_victim }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('witness') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('witness') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <input type="text" class="form-control" id="witness" name="witness"
                                             value="{{ $accident->onsite_witness }}">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('content') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('content') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <textarea class="form-control" id="content" name="content" rows="4" cols="50">{{ $accident->acc_content }}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-12 col-md-2 col-form-label">{{ __('accidentImage') }}</label>
-                                    <div class="col-12 col-md-10">
+                                    <label class="col-12 col-md-3 col-form-label">{{ __('accidentImage') }}</label>
+                                    <div class="col-12 col-md-9">
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="accidentImage[]"
@@ -384,7 +384,7 @@
                                             $i = 1;
                                             $img = ['jpg', 'jpeg', 'png', 'bmp'];
                                             ?>
-                                            <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
+                                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
                                                 @foreach ($accidentMedias as $accidentMedia)
                                                     @if (in_array(substr($accidentMedia->acc_media_url, -3), $img))
                                                         <div>
@@ -418,16 +418,12 @@
                             </div>
                         </div><!-- /.card-body -->
                         <div class="card-footer d-flex justify-content-center">
-                            @if ($accident->acc_status == 1)
-                                <button type="submit" name="action" value="draft"
-                                    class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1"
-                                    style="max-width: 400px;">{{ __('draft') }}</button>
-                            @endif
+                            <button type="submit" name="action" value="draft"
+                                class="btn btn-warning w-100 text-nowrap m-1">{{ __('draft') }}</button>
                             <button type="submit" name="action" value="report"
-                                class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1"
-                                style="max-width: 400px;">{{ __('report') }}</button>
-                            <a class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
-                                href="{{ route('staff.accident.show', $accident->acc_id) }}">{{ __('back') }}</a>
+                                class="btn btn-warning w-100 text-nowrap m-1">{{ __('report') }}</button>
+                            <button onclick="javascript:history.back()"
+                                class="btn bg-olive text-white w-100 text-nowrap m-1">{{ __('back') }}</button>
                         </div>
                     </form>
                 </div>
