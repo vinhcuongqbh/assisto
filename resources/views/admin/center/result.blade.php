@@ -14,7 +14,8 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-auto">
-                                <a href="{{ route('center.create') }}"><button type="button" class="btn bg-olive text-white w-100">{{ __('newCenter') }}</button></a>
+                                <a href="{{ route('center.create') }}"><button type="button"
+                                        class="btn bg-olive text-white w-100">{{ __('newCenter') }}</button></a>
                             </div>
                         </div>
                     </div>
@@ -24,19 +25,24 @@
                             @csrf
                             <div class="row">
                                 <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="centerID" name="centerID" placeholder="{{ __('centerID') }}">
+                                    <input type="text" class="form-control" id="centerID" name="centerID"
+                                        placeholder="{{ __('centerID') }}">
                                 </div>
                                 <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="centerName" name="centerName" placeholder="{{ __('centerName') }}">
-                                </div>   
+                                    <input type="text" class="form-control" id="centerName" name="centerName"
+                                        placeholder="{{ __('centerName') }}">
+                                </div>
                                 <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="{{ __('address') }}">
-                                </div> 
+                                    <input type="text" class="form-control" id="address" name="address"
+                                        placeholder="{{ __('address') }}">
+                                </div>
                                 <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="telephone" name="telephone" placeholder="{{ __('telephone') }}">
-                                </div>                              
+                                    <input type="text" class="form-control" id="telephone" name="telephone"
+                                        placeholder="{{ __('telephone') }}">
+                                </div>
                                 <div class="col-12 col-xl-2 my-2">
-                                    <button type="submit" class="btn bg-olive text-white w-100">{{ __('search') }}</button>
+                                    <button type="submit"
+                                        class="btn bg-olive text-white w-100">{{ __('search') }}</button>
                                 </div>
                             </div>
                             <!-- /.card-body -->
@@ -63,26 +69,30 @@
                             <tbody>
                                 @foreach ($centers as $center)
                                     <tr>
-                                        <td style="text-align: center"><a href="{{ route('center.show', $center->centerId) }}">{{ $center->centerId }}</a></td>
+                                        <td style="text-align: center"><a
+                                                href="{{ route('center.show', $center->centerId) }}">{{ $center->centerId }}</a>
+                                        </td>
                                         <td>{{ $center->centerName }}</td>
                                         <td>{{ $center->centerAddr }}</td>
                                         <td>{{ $center->centerTel }}</td>
                                         <td style="text-align: center">
                                             <a href="{{ route('center.edit', $center->centerId) }}">
-                                                <button type="button" class="btn bg-olive text-white w-100">{{ __('edit') }}</button>
+                                                <button type="button"
+                                                    class="btn bg-olive text-white w-100">{{ __('edit') }}</button>
                                             </a>
                                         </td>
                                         <td>
                                             @if ($center->isDeleted == 0)
                                                 <a href="{{ route('center.delete', $center->centerId) }}"
                                                     onclick="return confirm('{{ __('deleteCenter') }}')">
-                                                    <button type="button" class="btn btn-block btn-danger" disabled>{{ __('delete') }}</button>
+                                                    <button type="button" class="btn btn-block btn-danger"
+                                                        disabled>{{ __('delete') }}</button>
                                                 </a>
                                             @else
                                                 <a href="{{ route('center.recenter', $center->centerId) }}"
                                                     onclick="return confirm('{{ __('restoreCenter') }}')">
-                                                    <button type="button"
-                                                        class="btn bg-olive text-white w-100" disabled>Restore</button>
+                                                    <button type="button" class="btn bg-olive text-white w-100"
+                                                        disabled>Restore</button>
                                                 </a>
                                             @endif
                                         </td>
@@ -132,23 +142,33 @@
                 "lengthChange": false,
                 "pageLength": 25,
                 "searching": false,
-                "autoWidth": false,                
+                "autoWidth": false,
                 "ordering": false,
                 //"buttons": ["copy", "excel", "pdf", "print"],
-                // "language": {
-                //     "search": "Tìm kiếm:",
-                //     "emptyTable": "Không có dữ liệu phù hợp",
-                //     "zeroRecords": "Không tìm thấy dữ liệu phù hợp",
-                //     "info": "Hiển thị _START_ - _END_ trong tổng _TOTAL_ kết quả",
-                //     "infoEmpty": "",
-                //     "infoFiltered": "(Tìm kiếm trong tổng _MAX_ bản ghi)",
-                //     "paginate": {
-                //         "first": "Đầu tiên",
-                //         "last": "Cuối cùng",
-                //         "next": "Sau",
-                //         "previous": "Trước"
-                //     },
-                // },
+                "language": {
+                    "sProcessing": "データ取得中",
+                    "sLengthMenu": "1 ページあたり MENU 件のレコードを表示",
+                    "sZeroRecords": "結果が見つかりません",
+                    "sEmptyTable": "結果が見つかりません",
+                    "sInfo": "合計 TOTAL レコードの START から END までを表示しています",
+                    "sInfoEmpty": "合計 0 レコードの 0 から 0 を表示しています",
+                    "sInfoFiltered": "(合計 MAX レコードからフィルタリング)",
+                    "sInfoPostFix": "",
+                    "sSearch": "検索",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "読み込んでいます...",
+                    "oPaginate": {
+                        "sFirst": "最初",
+                        "sLast": "最後",
+                        "sNext": "次",
+                        "sPrevious": "前"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": 列を昇順で並べ替えるには有効にします",
+                        "sSortDescending": ": 列を降順でソートするには、アクティブにします"
+                    }
+                }
             }).buttons().container().appendTo('#center-table_wrapper .col-md-6:eq(0)');
         });
     </script>

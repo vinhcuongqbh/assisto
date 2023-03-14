@@ -148,5 +148,6 @@
     "frontCar": "Front image with license plates",
     "fullCar": "The whole car including the damage part",
     "damagePart": "Damage Part",
-    "addImage": "Additionally Image"
+    "addImage": "Additionally Image",
+    "googleMaps": "Go to Google Maps"
 }

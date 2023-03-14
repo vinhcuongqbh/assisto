@@ -51,7 +51,7 @@
                                                 </td>
                                                 <td style="width: 70%">
                                                     <a
-                                                        href="https://www.google.com/maps/place/{{ $accident->acc_coordinates }}">Go to Google Map</a>
+                                                        href="https://www.google.com/maps/place/{{ $accident->acc_coordinates }}">{{ __('googleMaps') }}</a>
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -145,20 +145,30 @@
                 "autoWidth": false,
                 "ordering": false,
                 //"buttons": ["copy", "excel", "pdf", "print"],
-                // "language": {
-                //     "search": "Tìm kiếm:",
-                //     "emptyTable": "Không có dữ liệu phù hợp",
-                //     "zeroRecords": "Không tìm thấy dữ liệu phù hợp",
-                //     "info": "Hiển thị _START_ - _END_ trong tổng _TOTAL_ kết quả",
-                //     "infoEmpty": "",
-                //     "infoFiltered": "(Tìm kiếm trong tổng _MAX_ bản ghi)",
-                //     "paginate": {
-                //         "first": "Đầu tiên",
-                //         "last": "Cuối cùng",
-                //         "next": "Sau",
-                //         "previous": "Trước"
-                //     },
-                // },
+                "language": {
+                    "sProcessing": "データ取得中",
+                    "sLengthMenu": "1 ページあたり MENU 件のレコードを表示",
+                    "sZeroRecords": "結果が見つかりません",
+                    "sEmptyTable": "結果が見つかりません",
+                    "sInfo": "合計 TOTAL レコードの START から END までを表示しています",
+                    "sInfoEmpty": "合計 0 レコードの 0 から 0 を表示しています",
+                    "sInfoFiltered": "(合計 MAX レコードからフィルタリング)",
+                    "sInfoPostFix": "",
+                    "sSearch": "検索",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "読み込んでいます...",
+                    "oPaginate": {
+                        "sFirst": "最初",
+                        "sLast": "最後",
+                        "sNext": "次",
+                        "sPrevious": "前"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": 列を昇順で並べ替えるには有効にします",
+                        "sSortDescending": ": 列を降順でソートするには、アクティブにします"
+                    }
+                }
             }).buttons().container().appendTo('#user-table_wrapper .col-md-6:eq(0)');
         });
     </script>

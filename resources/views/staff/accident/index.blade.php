@@ -14,7 +14,8 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-auto">
-                                <a class="btn bg-olive text-white w-100" href="{{ route('staff.accident.check') }}"><i class="fa fa-plus-circle"></i> {{ __('newReport') }}</a>
+                                <a class="btn bg-olive text-white w-100" href="{{ route('staff.accident.check') }}"><i
+                                        class="fa fa-plus-circle"></i> {{ __('newReport') }}</a>
                             </div>
                         </div>
                     </div>
@@ -47,14 +48,17 @@
                                 @foreach ($accidents as $accident)
                                     <tr>
                                         <td style="text-align:center">
-                                            <a href="{{ route('staff.accident.show', $accident->acc_id) }}">{{ $accident->acc_id }}</a>
+                                            <a
+                                                href="{{ route('staff.accident.show', $accident->acc_id) }}">{{ $accident->acc_id }}</a>
                                         </td>
                                         <td>
                                             <ul class="text-sm">
                                                 <li><strong>{{ __('date') }}:</strong> {{ $accident->acc_date }}</li>
                                                 <li><strong>{{ __('time') }}:</strong> {{ $accident->acc_time }}</li>
-                                                <li><strong>{{ __('place') }}:</strong> {{ $accident->onsite_collision_point }}</li>
-                                                <li><strong>{{ __('summary') }}:</strong> {{ $accident->acc_content }}</li>
+                                                <li><strong>{{ __('place') }}:</strong>
+                                                    {{ $accident->onsite_collision_point }}</li>
+                                                <li><strong>{{ __('summary') }}:</strong> {{ $accident->acc_content }}
+                                                </li>
                                             </ul>
                                         </td>
                                         <td style="text-align:center">{{ $accident->track_status_name }}</td>
@@ -63,8 +67,9 @@
                             </tbody>
                         </table>
                     </div><!-- /.card-body -->
-                    <div class="card-footer d-flex justify-content-center">                            
-                        <a class="btn btn-lg bg-olive text-white w-100 text-nowrap" style="max-width: 400px;" href="{{ route('staff.dashboard') }}">{{ __('back') }}</a>
+                    <div class="card-footer d-flex justify-content-center">
+                        <a class="btn btn-lg bg-olive text-white w-100 text-nowrap" style="max-width: 400px;"
+                            href="{{ route('staff.dashboard') }}">{{ __('back') }}</a>
                     </div>
                 </div><!-- /.card card-primary -->
             </div><!-- /.col-lg-6 -->
@@ -133,27 +138,37 @@
             $("#search-table").DataTable({
                 "responsive": true,
                 "lengthChange": false,
-                "pageLength": 25,
+                "pageLength": 15,
                 "searching": true,
                 "autoWidth": false,
                 "ordering": false,
                 "info": false,
-                "paging": true
+                "paging": true,
                 //"buttons": ["copy", "excel", "pdf", "print"],
-                // "language": {
-                //     "search": "Tìm kiếm:",
-                //     "emptyTable": "Không có dữ liệu phù hợp",
-                //     "zeroRecords": "Không tìm thấy dữ liệu phù hợp",
-                //     "info": "Hiển thị _START_ - _END_ trong tổng _TOTAL_ kết quả",
-                //     "infoEmpty": "",
-                //     "infoFiltered": "(Tìm kiếm trong tổng _MAX_ bản ghi)",
-                //     "paginate": {
-                //         "first": "Đầu tiên",
-                //         "last": "Cuối cùng",
-                //         "next": "Sau",
-                //         "previous": "Trước"
-                //     },
-                // },
+                "language": {
+                    "sProcessing": "データ取得中",
+                    "sLengthMenu": "1 ページあたり MENU 件のレコードを表示",
+                    "sZeroRecords": "結果が見つかりません",
+                    "sEmptyTable": "結果が見つかりません",
+                    "sInfo": "合計 TOTAL レコードの START から END までを表示しています",
+                    "sInfoEmpty": "合計 0 レコードの 0 から 0 を表示しています",
+                    "sInfoFiltered": "(合計 MAX レコードからフィルタリング)",
+                    "sInfoPostFix": "",
+                    "sSearch": "検索",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "読み込んでいます...",
+                    "oPaginate": {
+                        "sFirst": "最初",
+                        "sLast": "最後",
+                        "sNext": "次",
+                        "sPrevious": "前"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": 列を昇順で並べ替えるには有効にします",
+                        "sSortDescending": ": 列を降順でソートするには、アクティブにします"
+                    }
+                }
             }).buttons().container().appendTo('#store-table_wrapper .col-md-6:eq(0)');
         });
     </script>
