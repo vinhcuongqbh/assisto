@@ -16,7 +16,7 @@ class CenterController extends Controller
      */
     public function index()
     {
-        $center = Center::orderBy('centerId', 'desc')->get();
+        $center = Center::orderBy('centerId', 'asc')->get();
         return view('admin.center.index', ['centers' => $center]);
     }
 
