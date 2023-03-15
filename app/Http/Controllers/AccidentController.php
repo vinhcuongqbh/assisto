@@ -61,6 +61,7 @@ class AccidentController extends Controller
             'date' => 'required'
         ]);
 
+
         $accident = new Accident;
         $accident->staff_id = Auth::id();
         $accident->acc_date = $request->date;
@@ -75,14 +76,7 @@ class AccidentController extends Controller
         $accident->acc_involved_people_car_plates = $request->carPlates;
         $accident->acc_involved_people_insurance_company = $request->insuranceCompanyName;
         $accident->acc_involved_people_insurance_company_contact = $request->insuranceCompanyContact;
-        switch ($request->input('action')) {
-            case 'draft':
-                $accident->acc_status = 1;
-                break;
-            case 'report':
-                $accident->acc_status = 2;
-                break;
-        }
+        $accident->acc_status = $request->action;
         $accident->save();
 
         //Xử lý Ảnh tải lên
@@ -172,14 +166,7 @@ class AccidentController extends Controller
         $accident->acc_involved_people_car_plates = $request->carPlates;
         $accident->acc_involved_people_insurance_company = $request->insuranceCompanyName;
         $accident->acc_involved_people_insurance_company_contact = $request->insuranceCompanyContact;
-        switch ($request->input('action')) {
-            case 'draft':
-                $accident->acc_status = 1;
-                break;
-            case 'report':
-                $accident->acc_status = 2;
-                break;
-        }
+        $accident->acc_status = $request->action;
         $accident->save();
 
         //Xử lý Ảnh tải lên

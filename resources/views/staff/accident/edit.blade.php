@@ -400,11 +400,13 @@
                             </div>
                         </div>
 
+                        <input type="text" name="action" id="action" hidden />
+
                         <div class="row d-flex justify-content-center">
-                            <button type="submit" name="action" value="report"
+                            <button id="report" type="submit" value="report"
                                 class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1"
                                 style="max-width: 400px;">{{ __('report') }}</button>
-                            <button type="submit" name="action" value="draft"
+                            <button id="draft" type="submit" value="draft"
                                 class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1"
                                 style="max-width: 400px;">{{ __('draft') }}</button>
                             <a class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
@@ -490,4 +492,20 @@
             alert("座標データができませんでした。");
         }
     </script>
+
+<script>
+    function disableReport() {    
+        document.getElementById("action").value = 1;    
+        document.getElementById('accident-edit').submit();
+        report.disabled = true;
+        draft.disabled = true;
+    }
+
+    function disableDraft() {        
+        document.getElementById("action").value = 2;
+        document.getElementById('accident-edit').submit();
+        report.disabled = true;
+        draft.disabled = true;
+    }
+</script>
 @stop
