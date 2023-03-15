@@ -405,10 +405,10 @@
                         <div class="row d-flex justify-content-center">
                             <button id="report" type="submit" value="report"
                                 class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1"
-                                style="max-width: 400px;">{{ __('report') }}</button>
+                                style="max-width: 400px;" onclick="disableReport()">{{ __('report') }}</button>
                             <button id="draft" type="submit" value="draft"
                                 class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1"
-                                style="max-width: 400px;">{{ __('draft') }}</button>
+                                style="max-width: 400px;" onclick="disableDraft()">{{ __('draft') }}</button>
                             <a class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
                                 href="{{ route('staff.accident.index') }}">{{ __('back') }}</a>
                         </div>

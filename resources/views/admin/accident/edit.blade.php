@@ -159,8 +159,8 @@
                                                     <label class="custom-file-label"
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
-                                            </div>                                            
-                                            @if (isset($accidentMedias))                                                
+                                            </div>
+                                            @if (isset($accidentMedias))
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)
@@ -191,7 +191,7 @@
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
                                             </div>
-                                            @if (isset($accidentMedias))                                               
+                                            @if (isset($accidentMedias))
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)
@@ -259,8 +259,8 @@
                                             <label class="col-form-label">1. {{ __('frontCar') }}</label>
                                             <div class="input-group" style="margin-bottom:10px">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input"
-                                                        name="frontCar" accept="image/*">
+                                                    <input type="file" class="custom-file-input" name="frontCar"
+                                                        accept="image/*">
                                                     <label class="custom-file-label"
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
@@ -290,8 +290,8 @@
                                             <label class="col-form-label">2. {{ __('fullCar') }}</label>
                                             <div class="input-group" style="margin-bottom:10px">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input"
-                                                        name="fullCar" accept="image/*">
+                                                    <input type="file" class="custom-file-input" name="fullCar"
+                                                        accept="image/*">
                                                     <label class="custom-file-label"
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
@@ -321,8 +321,8 @@
                                             <label class="col-form-label">3. {{ __('damagePart') }}</label>
                                             <div class="input-group" style="margin-bottom:10px">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input"
-                                                        name="damagePart" accept="image/*">
+                                                    <input type="file" class="custom-file-input" name="damagePart"
+                                                        accept="image/*">
                                                     <label class="custom-file-label"
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
@@ -352,8 +352,8 @@
                                             <label class="col-form-label">4. {{ __('addImage') }}</label>
                                             <div class="input-group" style="margin-bottom:10px">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input"
-                                                        name="addImage[]" accept="image/*" multiple>
+                                                    <input type="file" class="custom-file-input" name="addImage[]"
+                                                        accept="image/*" multiple>
                                                     <label class="custom-file-label"
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
@@ -395,13 +395,15 @@
                             </div>
                         </div>
 
+                        <input type="text" name="action" id="action" hidden />
+
                         <div class="row d-flex justify-content-center">
-                            <button type="submit" name="action" value="report"
-                                class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1"
-                                style="max-width: 400px;">{{ __('report') }}</button>
-                            <button type="submit" name="action" value="draft"
-                                class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1"
-                                style="max-width: 400px;">{{ __('draft') }}</button>
+                            <button id="report" type="submit" name="action" value="report"
+                                class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
+                                onclick="disableReport()">{{ __('report') }}</button>
+                            <button id="draft" type="submit" name="action" value="draft"
+                                class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1" style="max-width: 400px;"
+                                onclick="disableDraft()">{{ __('draft') }}</button>
                             <a class="btn btn-lg btn-danger text-white w-100 text-nowrap m-1" style="max-width: 400px;"
                                 href="{{ route('staff.accident.index') }}">{{ __('cancel') }}</a>
                         </div>
@@ -451,5 +453,21 @@
         $(function() {
             bsCustomFileInput.init();
         });
+    </script>
+
+    <script>
+        function disableReport() {
+            document.getElementById("action").value = 1;
+            document.getElementById('accident-edit').submit();
+            report.disabled = true;
+            draft.disabled = true;
+        }
+
+        function disableDraft() {
+            document.getElementById("action").value = 2;
+            document.getElementById('accident-edit').submit();
+            report.disabled = true;
+            draft.disabled = true;
+        }
     </script>
 @stop
