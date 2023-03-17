@@ -77,12 +77,14 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="text-sm p-0 text-nowrap">
-                                                            <strong>{{ __('centerName') }}:</strong></td>
+                                                            <strong>{{ __('centerName') }}:</strong>
+                                                        </td>
                                                         <td class="text-sm p-0">{{ $user->centerName }}</td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-sm p-0 text-nowrap">
-                                                            <strong>{{ __('userRole') }}:</strong></td>
+                                                            <strong>{{ __('userRole') }}:</strong>
+                                                        </td>
                                                         <td class="text-sm p-0">{{ $user->roleName }}</td>
                                                     </tr>
                                                 </tbody>
@@ -94,16 +96,16 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     @if ($user->isDeleted == 0)
-                                                        <a class="btn bg-danger text-white w-100 text-nowrap m-1"
+                                                        <a class="btn bg-olive text-white w-100 text-nowrap m-1"
                                                             href="{{ route('user.delete', $user->userId) }}"
                                                             onclick="return confirm('{{ __('deleteUser') }}')">
-                                                            {{ __('disable') }}
+                                                            {{ __('enable') }}
                                                         </a>
                                                     @else
-                                                        <a class="btn bg-olive text-white w-100 text-nowrap m-1"
+                                                        <a class="btn bg-danger text-white w-100 text-nowrap m-1"
                                                             href="{{ route('user.restore', $user->userId) }}"
                                                             onclick="return confirm('{{ __('restoreUser') }}')">
-                                                            {{ __('enable') }}
+                                                            {{ __('disable') }}
                                                         </a>
                                                     @endif
                                                 </div>
