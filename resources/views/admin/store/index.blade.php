@@ -51,58 +51,7 @@
                             </div>
                             <!-- /.card-body -->
                         </form>
-                        <table id="store-table" class="table table-bordered table-striped">
-                            <colgroup>
-                                <col style="width:8%;">
-                                <col style="width:20%;">
-                                <col style="width:33%;">
-                                <col style="width:10%;">
-                                <col style="width:20%;">
-                                <col style="width:8%;">
-                                <col style="width:8%;">
-                            </colgroup>
-                            <thead style="text-align: center">
-                                <tr>
-                                    <th class="text-nowrap">{{ __('storeID') }}</th>
-                                    <th class="text-nowrap">{{ __('storeName') }}</th>
-                                    <th class="text-nowrap">{{ __('address') }}</th>
-                                    <th class="text-nowrap">{{ __('telephone') }}</th>
-                                    <th class="text-nowrap">{{ __('centerName') }}</th>
-                                    <th class="text-nowrap">{{ __('edit') }}</th>
-                                    <th class="text-nowrap">{{ __('enable') }}/{{ __('disable') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($stores as $store)
-                                    <tr>
-                                        <td style="text-align: center"><a
-                                                href="{{ route('store.show', $store->storeId) }}">{{ $store->storeId }}</a>
-                                        </td>
-                                        <td>{{ $store->storeName }}</td>
-                                        <td>{{ $store->storeAddr }}</td>
-                                        <td>{{ $store->storeTel }}</td>
-                                        <td>{{ $store->centerName }}</td>
-                                        <td style="text-align: center">
-                                            <a href="{{ route('store.edit', $store->storeId) }}">
-                                                <button type="button"
-                                                    class="btn bg-warning text-white w-100 text-nowrap">{{ __('edit') }}</button>
-                                            </a>
-                                        </td>
-                                        <td>
-                                            @if ($store->isDeleted == 0)
-                                                <a class="btn bg-olive text-white w-100 text-nowrap" href="{{ route('store.delete', $store->storeId) }}"
-                                                    onclick="return confirm('{{ __('deleteStore') }}')">{{ __('enable') }}
-                                                </a>
-                                            @else
-                                                <a class="btn btn-danger text-white w-100 text-nowrap" href="{{ route('store.restore', $store->storeId) }}"
-                                                    onclick="return confirm('{{ __('restoreStore') }}')">{{ __('disable') }}
-                                                </a>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -111,6 +60,70 @@
             <!-- /.col -->
         </div>
         <!-- /.row -->
+        <div class="row">
+            <div class="col-md-12">
+                <table id="store-table" class="table table-bordered bg-white">
+                    <thead style="text-align: center">
+                        <tr>
+                            <th class="text-nowrap">{{ __('storeID') }}</th>
+                            <th class="text-nowrap">{{ __('store') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($stores as $store)
+                        <tr>
+                            <td class="text-center text-bold">
+                                <a href="{{ route('store.show', $store->storeId) }}">{{ $store->storeId }}</a>
+                            </td>
+                            <td>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p><strong>{{ $store->storeName }}</strong></p>
+                                    </div>
+                                </div>
+                                <table class="table table-borderless w-100">
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-sm p-0"><strong>{{ __('address') }}:</strong></td>
+                                            <td class="text-sm p-0">{{ $store->storeAddr }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-sm p-0"><strong>{{ __('telephone') }}:</strong></td>
+                                            <td class="text-sm p-0">{{ $store->storeTel }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-sm p-0"><strong>{{ __('centerName') }}:</strong></td>
+                                            <td class="text-sm p-0">{{ $store->centerName }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="row p-0">
+                                    <div class="col-md-6 p-1">
+                                        <a href="{{ route('store.edit', $store->storeId) }}">
+                                            <button type="button"
+                                                    class="btn bg-warning text-white w-100 text-nowrap">{{ __('edit') }}</button>
+                                        </a>
+                                    </div>
+                                    <div class="col-md-6 p-1">
+                                        @if ($store->isDeleted == 0)
+                                        <a class="btn bg-olive text-white w-100 text-nowrap" href="{{ route('store.delete', $store->storeId) }}"
+                                           onclick="return confirm('{{ __('deleteStore') }}')">{{ __('enable') }}
+                                        </a>
+                                        @else
+                                        <a class="btn btn-danger text-white w-100 text-nowrap" href="{{ route('store.restore', $store->storeId) }}"
+                                           onclick="return confirm('{{ __('restoreStore') }}')">{{ __('disable') }}
+                                        </a>
+                                        @endif
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
     </div>
     <!-- /.container-fluid -->
 @stop
@@ -161,7 +174,7 @@
                     "sLengthMenu": "1 ページあたり MENU 件のレコードを表示",
                     "sZeroRecords": "結果が見つかりません",
                     "sEmptyTable": "結果が見つかりません",
-                    "sInfo": "合計 TOTAL レコードの START から END までを表示しています",
+                    "sInfo": "合計 _TOTAL_ レコードの _START_ から _END_ までを表示しています",
                     "sInfoEmpty": "合計 0 レコードの 0 から 0 を表示しています",
                     "sInfoFiltered": "(合計 MAX レコードからフィルタリング)",
                     "sInfoPostFix": "",

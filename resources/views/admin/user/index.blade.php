@@ -46,23 +46,11 @@
                                 </div>
                             </div>
                         </form>
-                        <table id="user-table" class="table table-bordered table-striped">
-                            <colgroup>
-                                <col style="width:10%;">
-                                <col style="width:38%;">
-                                <col style="width:20%;">
-                                <col style="width:16%;">
-                                <col style="width:8%;">
-                                <col style="width:8%;">
-                            </colgroup>
+                        <table id="user-table" class="table table-bordered">
                             <thead style="text-align: center">
                                 <tr>
                                     <th>{{ __('userID') }}</th>
-                                    <th>{{ __('userName') }}</th>
-                                    <th>{{ __('centerName') }}</th>
-                                    <th>{{ __('userRole') }}</th>
-                                    <th>{{ __('edit') }}</th>
-                                    <th>{{ __('enable') }}/{{ __('disable') }}</th>
+                                    <th>{{ __('userInformation') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,29 +59,47 @@
                                         <td style="text-align: center">
                                             <a href="{{ route('user.show', $user->userId) }}">{{ $user->userId }}</a>
                                         </td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->centerName }}</td>
-                                        <td>{{ $user->roleName }}</td>
-                                        <td style="text-align: center">
-                                            <a href="{{ route('user.edit', $user->userId) }}">
-                                                <button type="button"
-                                                    class="btn bg-warning text-white w-100 text-nowrap">{{ __('edit') }}</button>
-                                            </a>
-                                        </td>
                                         <td>
-                                            @if ($user->isDeleted == 0)
-                                                <a class="btn bg-olive text-white w-100 text-nowrap"
-                                                    href="{{ route('user.delete', $user->userId) }}"
-                                                    onclick="return confirm('{{ __('deleteUser') }}')">
-                                                    {{ __('enable') }}
-                                                </a>
-                                            @else
-                                                <a class="btn btn-danger text-white w-100 text-nowrap"
-                                                    href="{{ route('user.restore', $user->userId) }}"
-                                                    onclick="return confirm('{{ __('restoreUser') }}')">
-                                                    {{ __('disable') }}
-                                                </a>
-                                            @endif
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p><strong>{{ $user->name }}</strong></p>
+                                                </div>
+                                            </div>
+                                            <table class="table table-borderless w-100">
+                                                <tbody>
+                                                    <tr>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-sm p-0 text-nowrap"><strong>{{ __('centerName') }}:</strong></td>
+                                                        <td class="text-sm p-0">{{ $user->centerName }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-sm p-0 text-nowrap"><strong>{{ __('userRole') }}:</strong></td>
+                                                        <td class="text-sm p-0">{{ $user->roleName }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="row p-0">
+                                                <div class="col-md-6">
+                                                    <a href="{{ route('user.edit', $user->userId) }}" class="btn bg-warning text-white w-100 text-nowrap m-1">{{ __('edit') }}</a>
+                                                </div>
+                                               <div class="col-md-6">
+                                                    @if ($user->isDeleted == 0)
+                                                        <a class="btn bg-olive text-white w-100 text-nowrap m-1"
+                                                            href="{{ route('user.delete', $user->userId) }}"
+                                                            onclick="return confirm('{{ __('deleteUser') }}')">
+                                                            {{ __('enable') }}
+                                                        </a>
+                                                    @else
+                                                        <a class="btn btn-danger text-white w-100 text-nowrap m-1"
+                                                            href="{{ route('user.restore', $user->userId) }}"
+                                                            onclick="return confirm('{{ __('restoreUser') }}')">
+                                                            {{ __('disable') }}
+                                                        </a>
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -149,9 +155,9 @@
                     "sLengthMenu": "1 ページあたり MENU 件のレコードを表示",
                     "sZeroRecords": "結果が見つかりません",
                     "sEmptyTable": "結果が見つかりません",
-                    "sInfo": "合計 TOTAL レコードの START から END までを表示しています",
+                    "sInfo": "合計 _TOTAL_ レコードの _START_ から _END_ までを表示しています",
                     "sInfoEmpty": "合計 0 レコードの 0 から 0 を表示しています",
-                    "sInfoFiltered": "(合計 MAX レコードからフィルタリング)",
+                    "sInfoFiltered": "(合計 _MAX_ レコードからフィルタリング)",
                     "sInfoPostFix": "",
                     "sSearch": "検索",
                     "sUrl": "",

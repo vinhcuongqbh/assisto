@@ -12,7 +12,7 @@
             <div class="col-xl-6">
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title text-bold">{{ __('centerInformation') }}</h3>
+                        <h3 class="card-title text-bold">{{ __('centerInformation') }}{{ __('edit') }}</h3>
                     </div>
                     @if ($errors->any())
                         <div class="alert alert-danger">

@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="card-body m-0 p-0">
-                        <table id="result-table" class="table table-head-fixed table-hover">
+                        <table id="result-table" class="table table-head-fixed">
                             <thead>
                                 <tr>
                                     <th class="text-center text-nowrap">{{ __('storeID') }}</th>

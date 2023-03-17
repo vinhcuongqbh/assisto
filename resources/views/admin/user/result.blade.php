@@ -47,54 +47,60 @@
                             </div>
                             <!-- /.card-body -->
                         </form>
-                        <table id="user-table" class="table table-bordered table-striped">
-                            <colgroup>
-                                <col style="width:10%;">
-                                <col style="width:38%;">
-                                <col style="width:20%;">
-                                <col style="width:16%;">
-                                <col style="width:8%;">
-                                <col style="width:8%;">
-                            </colgroup>
+                        <table id="user-table" class="table table-bordered">
                             <thead style="text-align: center">
                                 <tr>
                                     <th>{{ __('userID') }}</th>
-                                    <th>{{ __('userName') }}</th>
-                                    <th>{{ __('centerName') }}</th>
-                                    <th>{{ __('userRole') }}</th>
-                                    <th>{{ __('edit') }}</th>
-                                    <th>{{ __('delete') }}</th>
+                                    <th>{{ __('userInformation') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($users as $user)
                                     <tr>
-                                        <td style="text-align: center"><a
-                                                href="{{ route('user.show', $user->userId) }}">{{ $user->userId }}</a>
-                                        </td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->centerName }}</td>
-                                        <td>{{ $user->roleName }}</td>
                                         <td style="text-align: center">
-                                            <a href="{{ route('user.edit', $user->userId) }}">
-                                                <button type="button"
-                                                    class="btn bg-olive text-white w-100">{{ __('edit') }}</button>
-                                            </a>
+                                            <a href="{{ route('user.show', $user->userId) }}">{{ $user->userId }}</a>
                                         </td>
                                         <td>
-                                            @if ($user->isDeleted == 0)
-                                                <a href="{{ route('user.delete', $user->userId) }}"
-                                                    onclick="return confirm('{{ __('deleteUser') }}')">
-                                                    <button type="button"
-                                                        class="btn btn-danger text-white w-100">{{ __('delete') }}</button>
-                                                </a>
-                                            @else
-                                                <a href="{{ route('user.restore', $user->userId) }}"
-                                                    onclick="return confirm('{{ __('restoreUser') }}')">
-                                                    <button type="button"
-                                                        class="btn btn-block btn-outline-success">{{ __('restore') }}</button>
-                                                </a>
-                                            @endif
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p><strong>{{ $user->name }}</strong></p>
+                                                </div>
+                                            </div>
+                                            <table class="table table-borderless w-100">
+                                                <tbody>
+                                                    <tr>
+                                                        
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-sm p-0 text-nowrap"><strong>{{ __('centerName') }}:</strong></td>
+                                                        <td class="text-sm p-0">{{ $user->centerName }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-sm p-0 text-nowrap"><strong>{{ __('userRole') }}:</strong></td>
+                                                        <td class="text-sm p-0">{{ $user->roleName }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="row p-0">
+                                                <div class="col-md-6">
+                                                    <a href="{{ route('user.edit', $user->userId) }}" class="btn bg-warning text-white w-100 text-nowrap m-1">{{ __('edit') }}</a>
+                                                </div>
+                                               <div class="col-md-6">
+                                                    @if ($user->isDeleted == 0)
+                                                        <a class="btn bg-olive text-white w-100 text-nowrap m-1"
+                                                            href="{{ route('user.delete', $user->userId) }}"
+                                                            onclick="return confirm('{{ __('deleteUser') }}')">
+                                                            {{ __('enable') }}
+                                                        </a>
+                                                    @else
+                                                        <a class="btn btn-danger text-white w-100 text-nowrap m-1"
+                                                            href="{{ route('user.restore', $user->userId) }}"
+                                                            onclick="return confirm('{{ __('restoreUser') }}')">
+                                                            {{ __('disable') }}
+                                                        </a>
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

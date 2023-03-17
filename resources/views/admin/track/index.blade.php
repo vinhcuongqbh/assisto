@@ -8,66 +8,64 @@
 
 @section('content')
     <div class="container-fluid">
+        <div class="row mb-1">
+            <div class="col-auto">
+                <a href="{{ route('track.create') }}" class="btn bg-olive text-white w-100 text-nowrap">{{ __('newReport') }}</a>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12">
-                <div class="card card-default">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-auto">
-                                <a href="{{ route('track.create') }}"><button type="button"
-                                        class="btn bg-olive text-white w-100 text-nowrap">{{ __('newReport') }}</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        {{-- <form class="form-horizontal" action="{{ route('track.search') }}" method="post" id="track-search">
-                            @csrf
-                            <div class="form-group row">
-                                <label for="date" class="col-2 col-md-1 col-form-label">{{ __('date') }}</label>
-                                <div class="col-7 col-md-3">
-                                    <input type="date" class="form-control" id="date" name="date">
-                                </div>
-                                <div class="col-3 col-md-1">
-                                    <button type="submit"
-                                        class="btn bg-olive text-white w-100 text-nowrap">{{ __('search') }}</button>
-                                </div>
-                            </div>
-                        </form>
-                        <hr> --}}
-
-                        <table id="search-table" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th style="text-align: center">No</th>
-                                    <th style="text-align: center">{{ __('date') }} {{ __('time') }}</th>
-                                    <th style="text-align: center">{{ __('place') }}</th>
-                                    <th style="text-align: center">{{ __('title') }}</th>
-                                    <th style="text-align: center">{{ __('userID') }}</th>
-                                    <th style="text-align: center">{{ __('userName') }}</th>
-                                    <th style="text-align: center">{{ __('centerName') }}</th>
-                                    <th style="text-align: center">{{ __('status') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($tracks as $track)
-                                    <tr>
-                                        <td style="text-align: center">
-                                            <a
-                                                href="{{ route('track.show', $track->track_id) }}">{{ $track->track_id }}</a>
-                                        </td>
-                                        <td>{{ $track->track_date . ' ' . $track->track_time }}</td>
-                                        <td>{{ $track->track_place }}</td>
-                                        <td>{{ $track->track_title }}</td>
-                                        <td>{{ $track->userId }}</td>
-                                        <td>{{ $track->name }}</td>
-                                        <td>{{ $track->centerName }}</td>
-                                        <td>{{ $track->track_status_name }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div><!-- /.card-body -->
-                </div><!-- /.card card-primary -->
+                <table id="search-table" class="table table-bordered bg-white">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center">ID</th>
+                            <th style="text-align: center">{{ __('trackReports') }}{{ __('information') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($tracks as $track)
+                        <tr>
+                            <td class="text-bold text-center">
+                                <a href="{{ route('track.show', $track->track_id) }}">{{ $track->track_id }}</a>
+                            </td>
+                            <td>
+                                <table class="table table-borderless table-sm table-valign-middle p-0">
+                                    <tbody>
+                                        <tr class="p-0 m-0">
+                                            <th class="text-nowrap p-0 m-0" style="width: 20%">{{ __('datetime') }}</th>
+                                            <td>{{ $track->track_date . ' ' . $track->track_time }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('title') }}</th>
+                                            <td>{{ $track->track_title }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('place') }}</th>
+                                            <td>{{ $track->track_place }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('userID') }}</th>
+                                            <td>{{ $track->userId }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('userName') }}</th>
+                                            <td>{{ $track->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('centerName') }}</th>
+                                            <td>{{ $track->centerName }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('status') }}</th>
+                                            <td>{{ $track->track_status_name }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -146,7 +144,7 @@
                     "sLengthMenu": "1 ページあたり MENU 件のレコードを表示",
                     "sZeroRecords": "結果が見つかりません",
                     "sEmptyTable": "結果が見つかりません",
-                    "sInfo": "合計 TOTAL レコードの START から END までを表示しています",
+                    "sInfo": "合計 _TOTAL_ レコードの _START_ から _END_ までを表示しています",
                     "sInfoEmpty": "合計 0 レコードの 0 から 0 を表示しています",
                     "sInfoFiltered": "(合計 MAX レコードからフィルタリング)",
                     "sInfoPostFix": "",

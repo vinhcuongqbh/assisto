@@ -8,65 +8,63 @@
 
 @section('content')
     <div class="container-fluid">
+        <div class="row mb-1">
+            <div class="col-md-12">
+                <a href="{{ route('accident.create') }}" class="btn bg-olive text-white text-nowrap">
+                    <i class="fa fa-plus"></i> {{ __('newReport') }}
+                </a>
+            </div>
+        </div>
         <div class="row">
+            
             <div class="col-lg-12">
-                <div class="card card-default">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-auto">
-                                <a href="{{ route('accident.create') }}"><button type="button"
-                                        class="btn bg-olive text-white w-100 text-nowrap">{{ __('newReport') }}</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        {{-- <form action="{{ route('accident.search') }}" method="post" id="accident-search">
-                            @csrf
-                            <div class="form-group row">
-                                <label for="date" class="col-2 col-md-1 col-form-label">{{ __('date') }}</label>
-                                <div class="col-7 col-md-3">
-                                    <input type="date" class="form-control" id="date" name="date">
-                                </div>
-                                <div class="col-3 col-md-1">
-                                    <button type="submit"
-                                        class="btn bg-olive text-white w-100 text-nowrap">{{ __('search') }}</button>
-                                </div>
-                            </div>
-                        </form>
-                        <hr> --}}
-
-                        <table id="search-table" class="table table-bordered table-striped">
-                            <thead style="text-align: center">
-                                <tr>
-                                    <th>No</th>
-                                    <th>{{ __('date') }} {{ __('time') }}</th>
-                                    <th>{{ __('place') }}</th>
-                                    <th>{{ __('userID') }}</th>
-                                    <th>{{ __('userName') }}</th>
-                                    <th>{{ __('centerName') }}</th>
-                                    <th>{{ __('status') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($accidents as $accident)
-                                    <tr>
-                                        <td style="text-align: center">
-                                            <a
-                                                href="{{ route('staff.accident.show', $accident->acc_id) }}">{{ $accident->acc_id }}</a>
-                                        </td>
-                                        <td>{{ $accident->acc_date . ' ' . $accident->acc_time }}</td>
-                                        <td>{{ $accident->onsite_collision_point }}</td>
-                                        <td>{{ $accident->userId }}</td>
-                                        <td>{{ $accident->name }}</td>
-                                        <td>{{ $accident->centerName }}</td>
-                                        <td>{{ $accident->track_status_name }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div><!-- /.card-body -->
-
-                </div><!-- /.card card-primary -->
+                <table id="search-table" class="table table-bordered bg-white">
+                    <thead style="text-align: center">
+                        <tr>
+                            <th style="width:20%">ID</th>
+                            <th>{{ __('accidentReports') }}{{ __('information') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($accidents as $accident)
+                        <tr>
+                            <td class="text-bold text-center">
+                                <a href="{{ route('staff.accident.show', $accident->acc_id) }}">{{ $accident->acc_id }}</a>
+                            </td>
+                            <td>
+                                <table class="table table-borderless table-sm table-valign-middle p-0">
+                                    <tbody>
+                                        <tr class="p-0 m-0">
+                                            <th class="text-nowrap p-0 m-0" style="width: 20%">{{ __('datetime') }}</th>
+                                            <td>{{ $accident->acc_date . ' ' . $accident->acc_time }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('place') }}</th>
+                                            <td>{{ $accident->onsite_collision_point }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('userID') }}</th>
+                                            <td>{{ $accident->userId }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('userName') }}</th>
+                                            <td>{{ $accident->name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('centerName') }}</th>
+                                            <td>{{ $accident->centerName }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-nowrap p-0 m-0">{{ __('status') }}</th>
+                                            <td>{{ $accident->track_status_name }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -145,9 +143,9 @@
                     "sLengthMenu": "1 ページあたり MENU 件のレコードを表示",
                     "sZeroRecords": "結果が見つかりません",
                     "sEmptyTable": "結果が見つかりません",
-                    "sInfo": "合計 TOTAL レコードの START から END までを表示しています",
+                    "sInfo": "合計 _TOTAL_ レコードの _START_ から _END_ までを表示しています",
                     "sInfoEmpty": "合計 0 レコードの 0 から 0 を表示しています",
-                    "sInfoFiltered": "(合計 MAX レコードからフィルタリング)",
+                    "sInfoFiltered": "(合計 _MAX_ レコードからフィルタリング)",
                     "sInfoPostFix": "",
                     "sSearch": "検索",
                     "sUrl": "",

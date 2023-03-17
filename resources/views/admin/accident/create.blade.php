@@ -40,9 +40,14 @@
                                             <input type="time" class="form-control" id="time" name="time"
                                                 value="{{ old('time') }}">
                                         </div>
-                                        <div class="row">
-                                            <a class="btn btn-success w-100 btn-lg"><i class="fa fa-plus"></i>
+                                        <div class="row hide-on-desktop">
+                                            <input type="text" name="lat_pos" id="lat_pos" hidden />
+                                            <input type="text" name="long_pos" id="long_pos" hidden />
+                                            <a id="location_button" class="btn btn-success w-100 btn-lg" href='javascript:;'
+                                                onclick="getLocationConstant()"><i id="loc_loading"
+                                                    class="fas fa-cog fa-spin"></i>
                                                 {{ __('getCoordinates') }}</a>
+                                            <p id="location_message" class="text-center text-sm"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -112,6 +117,9 @@
                                         <h2 class="card-title">{{ __('victimCarImage') }}</h2>
                                     </div>
                                     <div class="card-body">
+                                        <a id="cameraButton" class="btn btn-success mb-1 hide-on-desktop"
+                                            href='javascript:;' onclick='takePicture();'><i class="fa fa-video"></i>
+                                            写真を撮る</a>
                                         <div class="form-group row">
                                             <label class="col-form-label">1. {{ __('frontCar') }}</label>
                                             <div class="input-group">
@@ -168,6 +176,9 @@
                                         <h2 class="card-title">{{ __('carImage') }}</h2>
                                     </div>
                                     <div class="card-body">
+                                        <a id="cameraButton" class="btn btn-success mb-1 hide-on-desktop"
+                                            href='javascript:;' onclick='takePicture();'><i class="fa fa-video"></i>
+                                            写真を撮る</a>
                                         <div class="form-group row">
                                             <label class="col-form-label">1. {{ __('frontCar') }}</label>
                                             <div class="input-group">
@@ -275,7 +286,39 @@
         $(function() {
             bsCustomFileInput.init();
         });
+        
+        function takePicture() {
+            NativeAndroid.takePicture();
+        }
     </script>
+    <script>
+        document.getElementById("loc_loading").hidden = true;
+
+        function getLocationConstant() {
+            document.getElementById("loc_loading").hidden = false;
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
+            } else {
+                alert("GPS対応してません。");
+            }
+        }
+
+
+        function onGeoSuccess(event) {
+            document.getElementById("location_message").innerText = "座標データを取得しました。";
+            document.getElementById("lat_pos").value = event.coords.latitude;
+            document.getElementById("long_pos").value = event.coords.longitude;
+            document.getElementById("loc_loading").hidden = true;
+        }
+
+
+        function onGeoError(event) {
+            //            alert("Error code " + event.code + ". " + event.message);
+            document.getElementById("loc_loading").hidden = true;
+            alert("座標データができませんでした。");
+        }
+    </script>
+
 
     <script>
         function disableReport() {

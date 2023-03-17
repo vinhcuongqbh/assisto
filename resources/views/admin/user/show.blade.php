@@ -12,7 +12,7 @@
             <div class="col-xl-8">
                 <div class="card card-default">
                     <div class="card-header">
-                        <h3 class="card-title">{{ __('userInformation') }}</h3>
+                        <h3 class="card-title text-bold">{{ __('userInformation') }}</h3>
                     </div>
                     <div class="card-body">
                         <div class="form-group row">

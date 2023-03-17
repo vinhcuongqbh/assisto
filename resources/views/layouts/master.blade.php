@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="/dist/css/asabo.css">
 </head>
 
-<body class="sidebar-mini layout-navbar-fixed">
+<body class="sidebar-mini layout-fixed layout-navbar-fixed">
     <!-- Site wrapper -->
     <div class="wrapper">
         <!-- Navbar -->
@@ -64,7 +64,7 @@
             <!-- Brand Logo -->
             <div class="brand-link">
                 <img src="/img/logo.svg" alt="アシストロボ Logo" class="brand-image img-size-64">
-                <a class="brand-text font-weight-light" href="{{ route('user.show', Auth::user()->userId) }}">{{ Auth::user()->name }}</a>
+                <a class="brand-text font-weight-light text-sm text-bold text-olive" href="{{ route('user.show', Auth::user()->userId) }}">{{ Auth::user()->name }}</a>
             </div>
 
             <!-- Sidebar -->

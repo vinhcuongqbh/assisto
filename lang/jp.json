@@ -16,7 +16,7 @@
     "newCenter": "拠点追加",
     "centerID": "拠点ID",
     "address": "住所",
-    "telephone": "TEL",
+    "telephone": "連絡先",
     "newStore": "登録",
     "storeID": "店コード",
     "storeName": "店名",
@@ -150,5 +150,6 @@
     "fullCar": "破損個所を入れた車両全体",
     "damagePart": "破損個所アップ",
     "addImage": "同（複数アップロード可）",
-    "googleMaps": "マップで表示"
+    "googleMaps": "マップで表示",
+    "datetime": "日時"
 }

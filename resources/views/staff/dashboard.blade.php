@@ -7,7 +7,7 @@
     <div class="asabo-main-body">
         <div class="asabo-box">
             <div class="row mb-3">
-                <div class="col-md-12">
+                <div class="col-md-12" style="min-width: 300px">
                     <div class="card">
                         <div class="card-body" style="text-align:center">
                             <p class="text-lg-center">{{ __('slogan') }}</p>

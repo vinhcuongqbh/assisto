@@ -12,7 +12,7 @@
         <div class="row">
             
             <div class="asabo-box">
-                <div class="card card-default">
+                <div class="card card-default w-100" style="min-width: 300px">
                     <div class="card-body" style="text-align:center">
                         <p class="text-center">{{ __('slogan') }}</p>
                         <b>{{ $setting->slogan }}</b>
@@ -20,7 +20,7 @@
                     
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 w-100">
                         <div class="form-group">
                             <a class="btn bg-olive text-white w-100 btn-lg" href="/admin/center">{{ __('centerManagement') }}</a>
                         </div>
