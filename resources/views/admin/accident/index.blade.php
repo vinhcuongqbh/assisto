@@ -22,7 +22,7 @@
                     <thead style="text-align: center">
                         <tr>
                             <th style="width:20%">ID</th>
-                            <th>{{ __('accidentReports') }}{{ __('information') }}</th>
+                            <th>{{ __('accidentReports') }} {{ __('information') }}</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -14,7 +14,9 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-auto">
-                                <a href="{{ route('center.create') }}"><button type="button" class="btn bg-olive text-white w-100">{{ __('newCenter') }}</button></a>
+                                <a href="{{ route('center.create') }}"><button type="button"
+                                        class="btn bg-olive text-white w-100"><i class="fa fa-plus"></i>
+                                        {{ __('newCenter') }}</button></a>
                             </div>
                         </div>
                     </div>
@@ -24,24 +26,33 @@
                             @csrf
                             <div class="row">
                                 <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="centerID" name="centerID" placeholder="{{ __('centerID') }}">
+                                    <input type="text" class="form-control" id="centerID" name="centerID"
+                                        placeholder="{{ __('centerID') }}">
                                 </div>
                                 <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="centerName" name="centerName" placeholder="{{ __('centerName') }}">
-                                </div>   
+                                    <input type="text" class="form-control" id="centerName" name="centerName"
+                                        placeholder="{{ __('centerName') }}">
+                                </div>
                                 <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="address" name="address" placeholder="{{ __('address') }}">
-                                </div> 
+                                    <input type="text" class="form-control" id="address" name="address"
+                                        placeholder="{{ __('address') }}">
+                                </div>
                                 <div class="col-12 col-xl-2 my-2">
-                                    <input type="text" class="form-control" id="telephone" name="telephone" placeholder="{{ __('telephone') }}">
-                                </div>                              
+                                    <input type="text" class="form-control" id="telephone" name="telephone"
+                                        placeholder="{{ __('telephone') }}">
+                                </div>
                                 <div class="col-12 col-xl-2 my-2">
-                                    <button type="submit" class="btn bg-olive text-white w-100">{{ __('search') }}</button>
+                                    <button type="submit"
+                                        class="btn bg-olive text-white w-100">{{ __('search') }}</button>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                         </form>
-                        <table id="center-table" class="table table-bordered">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="center-table" class="table table-bordered bg-white">
                             <thead style="text-align: center">
                                 <tr>
                                     <th class="text-nowrap">{{ __('centerID') }}</th>
@@ -51,7 +62,9 @@
                             <tbody>
                                 @foreach ($centers as $center)
                                     <tr>
-                                        <td class="text-center text-bold"><a href="{{ route('center.show', $center->centerId) }}">{{ $center->centerId }}</a></td>
+                                        <td class="text-center text-bold"><a
+                                                href="{{ route('center.show', $center->centerId) }}">{{ $center->centerId }}</a>
+                                        </td>
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -65,25 +78,29 @@
                                                         <td>{{ $center->centerAddr }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-sm p-0"><strong>{{ __('telephone') }}:</strong></td>
+                                                        <td class="text-sm p-0"><strong>{{ __('telephone') }}:</strong>
+                                                        </td>
                                                         <td>{{ $center->centerTel }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                             <div class="row p-0">
                                                 <div class="col-md-6">
-                                                    <a href="{{ route('center.edit', $center->centerId) }}" class="btn bg-warning text-white w-100 text-nowrap m-1">{{ __('edit') }}</a>
+                                                    <a href="{{ route('center.edit', $center->centerId) }}"
+                                                        class="btn bg-warning text-white w-100 text-nowrap m-1">{{ __('edit') }}</a>
                                                 </div>
-                                               <div class="col-md-6">
-                                                     @if ($center->isDeleted == 0)
+                                                <div class="col-md-6">
+                                                    @if ($center->isDeleted == 0)
                                                         <a href="{{ route('center.delete', $center->centerId) }}"
-                                                            onclick="return confirm('{{ __('deleteCenter') }}')" class="btn bg-olive text-white w-100 text-nowrap m-1">
-                                                            {{ __('enable') }}
+                                                            onclick="return confirm('{{ __('deleteCenter') }}')"
+                                                            class="btn bg-danger text-white w-100 text-nowrap m-1">
+                                                            {{ __('disable') }}
                                                         </a>
                                                     @else
-                                                        <a class="btn bg-danger text-white w-100 text-nowrap m-1" href="{{ route('center.restore', $center->centerId) }}"
-                                                            onclick="return confirm('{{ __('restoreCenter') }}')">
-                                                            {{ __('disable') }}
+                                                        <a href="{{ route('center.restore', $center->centerId) }}"
+                                                            onclick="return confirm('{{ __('restoreCenter') }}')"
+                                                            class="btn bg-olive text-white w-100 text-nowrap m-1">
+                                                            {{ __('enable') }}
                                                         </a>
                                                     @endif
                                                 </div>
@@ -135,7 +152,7 @@
                 "lengthChange": false,
                 "pageLength": 25,
                 "searching": false,
-                "autoWidth": false,                
+                "autoWidth": false,
                 "ordering": false,
                 //"buttons": ["copy", "excel", "pdf", "print"],
                 "language": {

@@ -91,7 +91,7 @@
 
                         <div class="card-footer d-flex justify-content-center">
                             <button id="report" type="submit" value="report" class="btn bg-olive w-100 text-nowrap m-1"
-                                onclick="disableReport()">{{ __('report') }}>{{ __('report') }}</button>
+                                onclick="disableReport()">{{ __('report') }}</button>
                             <a class="btn bg-danger text-white w-100 text-nowrap m-1"
                                 href="{{ route('track') }}">{{ __('cancel') }}</a>
                         </div>

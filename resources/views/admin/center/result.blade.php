@@ -47,7 +47,11 @@
                             </div>
                             <!-- /.card-body -->
                         </form>
-                        <table id="center-table" class="table table-bordered">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="center-table" class="table table-bordered bg-white">
                             <thead style="text-align: center">
                                 <tr>
                                     <th class="text-nowrap">{{ __('centerID') }}</th>
@@ -57,7 +61,9 @@
                             <tbody>
                                 @foreach ($centers as $center)
                                     <tr>
-                                        <td class="text-center text-bold"><a href="{{ route('center.show', $center->centerId) }}">{{ $center->centerId }}</a></td>
+                                        <td class="text-center text-bold"><a
+                                                href="{{ route('center.show', $center->centerId) }}">{{ $center->centerId }}</a>
+                                        </td>
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-12">
@@ -71,25 +77,29 @@
                                                         <td>{{ $center->centerAddr }}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="text-sm p-0"><strong>{{ __('telephone') }}:</strong></td>
+                                                        <td class="text-sm p-0"><strong>{{ __('telephone') }}:</strong>
+                                                        </td>
                                                         <td>{{ $center->centerTel }}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                             <div class="row p-0">
                                                 <div class="col-md-6">
-                                                    <a href="{{ route('center.edit', $center->centerId) }}" class="btn bg-warning text-white w-100 text-nowrap m-1">{{ __('edit') }}</a>
+                                                    <a href="{{ route('center.edit', $center->centerId) }}"
+                                                        class="btn bg-warning text-white w-100 text-nowrap m-1">{{ __('edit') }}</a>
                                                 </div>
-                                               <div class="col-md-6">
-                                                     @if ($center->isDeleted == 0)
+                                                <div class="col-md-6">
+                                                    @if ($center->isDeleted == 0)
                                                         <a href="{{ route('center.delete', $center->centerId) }}"
-                                                            onclick="return confirm('{{ __('deleteCenter') }}')" class="btn bg-olive text-white w-100 text-nowrap m-1">
-                                                            {{ __('enable') }}
+                                                            onclick="return confirm('{{ __('deleteCenter') }}')"
+                                                            class="btn bg-danger text-white w-100 text-nowrap m-1">
+                                                            {{ __('disable') }}
                                                         </a>
                                                     @else
-                                                        <a class="btn bg-danger text-white w-100 text-nowrap m-1" href="{{ route('center.restore', $center->centerId) }}"
-                                                            onclick="return confirm('{{ __('restoreCenter') }}')">
-                                                            {{ __('disable') }}
+                                                        <a href="{{ route('center.restore', $center->centerId) }}"
+                                                            onclick="return confirm('{{ __('restoreCenter') }}')"
+                                                            class="btn bg-olive text-white w-100 text-nowrap m-1">
+                                                            {{ __('enable') }}
                                                         </a>
                                                     @endif
                                                 </div>

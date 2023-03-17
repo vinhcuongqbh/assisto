@@ -10,7 +10,8 @@
     <div class="container-fluid">
         <div class="row mb-1">
             <div class="col-auto">
-                <a href="{{ route('track.create') }}" class="btn bg-olive text-white w-100 text-nowrap">{{ __('newReport') }}</a>
+                <a href="{{ route('track.create') }}" class="btn bg-olive text-white w-100 text-nowrap"><i
+                        class="fa fa-plus"></i> {{ __('newReport') }}</a>
             </div>
         </div>
         <div class="row">
@@ -19,50 +20,50 @@
                     <thead>
                         <tr>
                             <th style="text-align: center">ID</th>
-                            <th style="text-align: center">{{ __('trackReports') }}{{ __('information') }}</th>
+                            <th style="text-align: center">{{ __('trackReports') }} {{ __('information') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($tracks as $track)
-                        <tr>
-                            <td class="text-bold text-center">
-                                <a href="{{ route('track.show', $track->track_id) }}">{{ $track->track_id }}</a>
-                            </td>
-                            <td>
-                                <table class="table table-borderless table-sm table-valign-middle p-0">
-                                    <tbody>
-                                        <tr class="p-0 m-0">
-                                            <th class="text-nowrap p-0 m-0" style="width: 20%">{{ __('datetime') }}</th>
-                                            <td>{{ $track->track_date . ' ' . $track->track_time }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('title') }}</th>
-                                            <td>{{ $track->track_title }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('place') }}</th>
-                                            <td>{{ $track->track_place }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('userID') }}</th>
-                                            <td>{{ $track->userId }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('userName') }}</th>
-                                            <td>{{ $track->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('centerName') }}</th>
-                                            <td>{{ $track->centerName }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('status') }}</th>
-                                            <td>{{ $track->track_status_name }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td class="text-bold text-center">
+                                    <a href="{{ route('track.show', $track->track_id) }}">{{ $track->track_id }}</a>
+                                </td>
+                                <td>
+                                    <table class="table table-borderless table-sm table-valign-middle p-0">
+                                        <tbody>
+                                            <tr class="p-0 m-0">
+                                                <th class="text-nowrap p-0 m-0" style="width: 20%">{{ __('datetime') }}</th>
+                                                <td>{{ $track->track_date . ' ' . $track->track_time }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('title') }}</th>
+                                                <td>{{ $track->track_title }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('place') }}</th>
+                                                <td>{{ $track->track_place }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('userID') }}</th>
+                                                <td>{{ $track->userId }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('userName') }}</th>
+                                                <td>{{ $track->name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('centerName') }}</th>
+                                                <td>{{ $track->centerName }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('status') }}</th>
+                                                <td>{{ $track->track_status_name }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

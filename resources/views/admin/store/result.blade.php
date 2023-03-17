@@ -51,7 +51,7 @@
                             </div>
                             <!-- /.card-body -->
                         </form>
-                        
+
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -71,58 +71,60 @@
                     </thead>
                     <tbody>
                         @foreach ($stores as $store)
-                        <tr>
-                            <td class="text-center text-bold">
-                                <a href="{{ route('store.show', $store->storeId) }}">{{ $store->storeId }}</a>
-                            </td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p><strong>{{ $store->storeName }}</strong></p>
+                            <tr>
+                                <td class="text-center text-bold">
+                                    <a href="{{ route('store.show', $store->storeId) }}">{{ $store->storeId }}</a>
+                                </td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p><strong>{{ $store->storeName }}</strong></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <table class="table table-borderless w-100">
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-sm p-0"><strong>{{ __('address') }}:</strong></td>
-                                            <td class="text-sm p-0">{{ $store->storeAddr }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-sm p-0"><strong>{{ __('telephone') }}:</strong></td>
-                                            <td class="text-sm p-0">{{ $store->storeTel }}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-sm p-0"><strong>{{ __('centerName') }}:</strong></td>
-                                            <td class="text-sm p-0">{{ $store->centerName }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="row p-0">
-                                    <div class="col-md-6 p-1">
-                                        <a href="{{ route('store.edit', $store->storeId) }}">
-                                            <button type="button"
+                                    <table class="table table-borderless w-100">
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-sm p-0"><strong>{{ __('address') }}:</strong></td>
+                                                <td class="text-sm p-0">{{ $store->storeAddr }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-sm p-0"><strong>{{ __('telephone') }}:</strong></td>
+                                                <td class="text-sm p-0">{{ $store->storeTel }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-sm p-0"><strong>{{ __('centerName') }}:</strong></td>
+                                                <td class="text-sm p-0">{{ $store->centerName }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="row p-0">
+                                        <div class="col-md-6 p-1">
+                                            <a href="{{ route('store.edit', $store->storeId) }}">
+                                                <button type="button"
                                                     class="btn bg-warning text-white w-100 text-nowrap">{{ __('edit') }}</button>
-                                        </a>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 p-1">
+                                            @if ($store->isDeleted == 0)
+                                                <a class="btn bg-danger text-white w-100 text-nowrap"
+                                                    href="{{ route('store.delete', $store->storeId) }}"
+                                                    onclick="return confirm('{{ __('restoreStore') }}')">{{ __('disable') }}
+                                                </a>
+                                            @else
+                                                <a class="btn bg-olive text-white w-100 text-nowrap"
+                                                    href="{{ route('store.restore', $store->storeId) }}"
+                                                    onclick="return confirm('{{ __('deleteStore') }}')">{{ __('enable') }}
+                                                </a>
+                                            @endif
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 p-1">
-                                        @if ($store->isDeleted == 0)
-                                        <a class="btn bg-olive text-white w-100 text-nowrap" href="{{ route('store.delete', $store->storeId) }}"
-                                           onclick="return confirm('{{ __('deleteStore') }}')">{{ __('enable') }}
-                                        </a>
-                                        @else
-                                        <a class="btn btn-danger text-white w-100 text-nowrap" href="{{ route('store.restore', $store->storeId) }}"
-                                           onclick="return confirm('{{ __('restoreStore') }}')">{{ __('disable') }}
-                                        </a>
-                                        @endif
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            
+
         </div>
     </div>
     <!-- /.container-fluid -->
