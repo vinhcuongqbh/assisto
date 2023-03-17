@@ -10,9 +10,6 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as Image;
 
-
-
-
 class AccidentController extends Controller
 {
     public function index()

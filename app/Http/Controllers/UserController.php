@@ -181,7 +181,7 @@ class UserController extends Controller
         $user = User::leftjoin('moz_roles', 'moz_roles.roleId', 'moz_users.roleId')
             ->leftjoin('asahi_center', 'asahi_center.centerId', 'moz_users.centerId')
             ->select('moz_users.*', 'moz_roles.roleName', 'asahi_center.centerName')
-            ->orderBy('userId', 'desc');
+            ->orderBy('userId', 'asc');
 
         if (isset($request->userID)) $user->where('userId', $request->userID);
         if (isset($request->userName)) $user->where('name', 'LIKE', '%' . $request->userName . '%');

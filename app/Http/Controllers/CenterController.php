@@ -113,7 +113,7 @@ class CenterController extends Controller
 
     public function search(Request $request)
     {
-        $center = Center::orderBy('centerId','desc');
+        $center = Center::orderBy('centerId','asc');
 
         if (isset($request->centerID)) $center->where('centerId', $request->centerID);
         if (isset($request->centerName)) $center->where('centerName', 'LIKE', '%' . $request->centerName . '%');

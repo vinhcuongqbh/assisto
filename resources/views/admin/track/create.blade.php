@@ -75,7 +75,8 @@
                             <div class="form-group row">
                                 <label class="col-12 col-md-2 col-form-label">{{ __('attachment') }}</label>
                                 <div class="col-12 col-md-10">
-                                    <a id="cameraButton" class="btn btn-success mb-1 hide-on-desktop" href='javascript:;' onclick='takePicture();'><i class="fa fa-video"></i> 写真を撮る</a>
+                                    <a id="cameraButton" class="btn btn-success mb-1 hide-on-desktop" href='javascript:;'
+                                        onclick='takePicture();'><i class="fa fa-video"></i> 写真を撮る</a>
                                     <div class="input-group">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" name="files[]" multiple />
@@ -85,13 +86,14 @@
                                 </div>
                             </div>
                         </div><!-- /.card-body -->
+
+                        <input type="text" name="action" id="action" hidden />
+
                         <div class="card-footer d-flex justify-content-center">
-                            <button type="submit" name="action" value="draft"
-                                class="btn btn-warning w-100 text-nowrap m-1">{{ __('draft') }}</button>
-                            <button type="submit" name="action" value="report"
-                                class="btn btn-warning w-100 text-nowrap m-1">{{ __('report') }}</button>
-                            <a class="btn bg-olive text-white w-100 text-nowrap m-1"
-                                href="{{ route('track') }}">{{ __('back') }}</a>
+                            <button id="report" type="submit" value="report" class="btn bg-olive w-100 text-nowrap m-1"
+                                onclick="disableReport()">{{ __('report') }}>{{ __('report') }}</button>
+                            <a class="btn bg-danger text-white w-100 text-nowrap m-1"
+                                href="{{ route('track') }}">{{ __('cancel') }}</a>
                         </div>
                     </form>
                 </div><!-- /.card -->
@@ -139,9 +141,18 @@
         $(function() {
             bsCustomFileInput.init();
         });
-        
+
         function takePicture() {
             NativeAndroid.takePicture();
         }
     </script>
+
+    <script>
+        function disableReport() {
+            document.getElementById("action").value = 2;
+            document.getElementById('track-create').submit();
+            report.disabled = true;
+        }
+    </script>
+
 @stop

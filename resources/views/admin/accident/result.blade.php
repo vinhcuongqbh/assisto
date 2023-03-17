@@ -14,13 +14,13 @@
                     <div class="card-header">
                         <div class="row">
                             <div class="col-auto">
-                                <a href="{{ route('staff.accident.create') }}"><button type="button"
+                                <a href="{{ route('accident.create') }}"><button type="button"
                                         class="btn bg-olive text-white w-100 text-nowrap">{{ __('newReport') }}</button></a>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        {{-- <form class="form-horizontal" action="{{ route('staff.accident.search') }}" method="post"
+                        {{-- <form class="form-horizontal" action="{{ route('accident.search') }}" method="post"
                             id="accident-search">
                             @csrf
                             <div class="form-group row">
@@ -53,7 +53,7 @@
                                     <tr>
                                         <td style="text-align: center">
                                             <a
-                                                href="{{ route('staff.accident.show', $accident->acc_id) }}">{{ $accident->acc_id }}</a>
+                                                href="{{ route('accident.show', $accident->acc_id) }}">{{ $accident->acc_id }}</a>
                                         </td>
                                         <td>{{ $accident->acc_date." ".$accident->acc_time }}</td>
                                         <td>{{ $accident->onsite_collision_point }}</td>

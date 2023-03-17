@@ -359,25 +359,20 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>                        
 
                         <div class="row d-flex justify-content-center">
-                            @if ($accident->acc_status == 1)
-                                <a href="{{ route('staff.accident.delete', $accident->acc_id) }}"
-                                    onclick="return confirm('{{ __('confirmDelete') }}')"
-                                    class="btn btn-lg bg-danger text-white w-100 text-nowrap m-1"
-                                    style="max-width: 400px;">{{ __('delete') }}</a>
-                                <a href="{{ route('staff.accident.report', $accident->acc_id) }}"
-                                    class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1"
-                                    style="max-width: 400px;">{{ __('report') }}</a>
-                            @endif
-                            <a href="{{ route('staff.accident.edit', $accident->acc_id) }}"
+                            <a href="{{ route('accident.delete', $accident->acc_id) }}"
+                                onclick="return confirm('{{ __('confirmDelete') }}')"
+                                class="btn btn-lg bg-danger text-white w-100 text-nowrap m-1"
+                                style="max-width: 400px;">{{ __('delete') }}</a>
+                            <a href="{{ route('accident.edit', $accident->acc_id) }}"
                                 class="btn btn-lg bg-warning text-white w-100 text-nowrap m-1"
                                 style="max-width: 400px;">{{ __('edit') }}</a>
-
                             <a class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
-                                href="{{ route('staff.accident.index') }}">{{ __('back') }}</a>
+                                href="{{ route('accident.index') }}">{{ __('back') }}</a>
                         </div>
+
                     </form>
                 </div>
                 <!-- /.card -->

@@ -147,8 +147,8 @@
                         @endif
 
                         <a class="btn bg-warning text-white text-nowrap w-100 btn-lg m-1"
-                            href="{{ route('staff.track.edit', $track->track_id) }}">{{ __('edit') }}</a> <a
-                            class="btn bg-olive text-white text-nowrap w-100 btn-lg m-1"
+                            href="{{ route('staff.track.edit', $track->track_id) }}">{{ __('edit') }}</a>
+                        <a class="btn bg-olive text-white text-nowrap w-100 btn-lg m-1"
                             href="{{ route('staff.track.index') }}">{{ __('back') }}</a>
                     </div>
                 </div>

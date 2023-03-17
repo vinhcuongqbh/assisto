@@ -16,7 +16,7 @@
             </div>
         </div>
         <div class="row">
-            
+
             <div class="col-lg-12">
                 <table id="search-table" class="table table-bordered bg-white">
                     <thead style="text-align: center">
@@ -27,41 +27,42 @@
                     </thead>
                     <tbody>
                         @foreach ($accidents as $accident)
-                        <tr>
-                            <td class="text-bold text-center">
-                                <a href="{{ route('staff.accident.show', $accident->acc_id) }}">{{ $accident->acc_id }}</a>
-                            </td>
-                            <td>
-                                <table class="table table-borderless table-sm table-valign-middle p-0">
-                                    <tbody>
-                                        <tr class="p-0 m-0">
-                                            <th class="text-nowrap p-0 m-0" style="width: 20%">{{ __('datetime') }}</th>
-                                            <td>{{ $accident->acc_date . ' ' . $accident->acc_time }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('place') }}</th>
-                                            <td>{{ $accident->onsite_collision_point }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('userID') }}</th>
-                                            <td>{{ $accident->userId }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('userName') }}</th>
-                                            <td>{{ $accident->name }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('centerName') }}</th>
-                                            <td>{{ $accident->centerName }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th class="text-nowrap p-0 m-0">{{ __('status') }}</th>
-                                            <td>{{ $accident->track_status_name }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td class="text-bold text-center">
+                                    <a
+                                        href="{{ route('accident.show', $accident->acc_id) }}">{{ $accident->acc_id }}</a>
+                                </td>
+                                <td>
+                                    <table class="table table-borderless table-sm table-valign-middle p-0">
+                                        <tbody>
+                                            <tr class="p-0 m-0">
+                                                <th class="text-nowrap p-0 m-0" style="width: 20%">{{ __('datetime') }}</th>
+                                                <td>{{ $accident->acc_date . ' ' . $accident->acc_time }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('place') }}</th>
+                                                <td>{{ $accident->onsite_collision_point }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('userID') }}</th>
+                                                <td>{{ $accident->userId }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('userName') }}</th>
+                                                <td>{{ $accident->name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('centerName') }}</th>
+                                                <td>{{ $accident->centerName }}</td>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-nowrap p-0 m-0">{{ __('status') }}</th>
+                                                <td>{{ $accident->track_status_name }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>

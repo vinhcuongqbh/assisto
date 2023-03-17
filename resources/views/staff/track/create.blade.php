@@ -81,23 +81,28 @@
                             <div class="form-group row">
                                 <label class="col-12 col-md-2 col-form-label">{{ __('attachment') }}</label>
                                 <div class="col-12 col-md-10">
-                                    <a id="cameraButton" class="btn btn-success mb-1 hide-on-desktop" href='javascript:;' onclick='takePicture();'><i class="fa fa-video"></i> 写真を撮る</a>
+                                    <a id="cameraButton" class="btn btn-success mb-1 hide-on-desktop" href='javascript:;'
+                                        onclick='takePicture();'><i class="fa fa-video"></i> 写真を撮る</a>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" name="files[]" multiple capture=camera"/>
+                                            <input type="file" class="custom-file-input" name="files[]" multiple
+                                                capture=camera" />
                                             <label class="custom-file-label" for="inputFile">{{ __('chooseFile') }}</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div><!-- /.card-body -->
+
+                        <input type="text" name="action" id="action" hidden />
+
                         <div class="card-footer d-flex justify-content-center">
-                            <button type="submit" name="action" value="report"
-                                class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1"
-                                style="max-width: 400px;">{{ __('report') }}</button>
-                            <button type="submit" name="action" value="draft"
-                                class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1"
-                                style="max-width: 400px;">{{ __('draft') }}</button>
+                            <button id="report" type="submit" value="report"
+                                class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
+                                onclick="disableReport()">{{ __('report') }}</button>
+                            <button id="draft" type="submit" value="draft"
+                                class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1" style="max-width: 400px;"
+                                onclick="disableDraft()">{{ __('draft') }}</button>
                             <a class="btn btn-lg btn-danger text-white w-100 text-nowrap m-1" style="max-width: 400px;"
                                 href="{{ route('staff.track.index') }}">{{ __('cancel') }}</a>
                         </div>
@@ -147,9 +152,25 @@
         $(function() {
             bsCustomFileInput.init();
         });
-        
+
         function takePicture() {
             NativeAndroid.takePicture();
+        }
+    </script>
+
+    <script>
+        function disableReport() {
+            document.getElementById("action").value = 2;
+            document.getElementById('track-create').submit();
+            report.disabled = true;
+            draft.disabled = true;
+        }
+
+        function disableDraft() {
+            document.getElementById("action").value = 1;
+            document.getElementById('track-create').submit();
+            report.disabled = true;
+            draft.disabled = true;
         }
     </script>
 @stop

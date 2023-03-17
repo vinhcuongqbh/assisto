@@ -189,7 +189,7 @@ class StoreController extends Controller
     {
         $store = Store::join('asahi_center', 'asahi_center.centerId', 'asahi_store.centerId')
             ->select('asahi_store.*', 'asahi_center.centerName')
-            ->orderby('asahi_store.storeId', 'desc');
+            ->orderby('asahi_store.storeId', 'asc');
 
         if (isset($request->storeID)) $store->where('storeId', $request->storeID);
         if (isset($request->storeName)) $store->where('storeName', 'LIKE', '%' . $request->storeName . '%');

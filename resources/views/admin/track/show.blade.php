@@ -139,16 +139,13 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
+                    <!-- /.card-body -->                   
+
                     <div class="card-footer d-flex justify-content-center">
                         <a class="btn btn-danger w-100 text-nowrap m-1"
                             href="{{ route('track.delete', $track->track_id) }}">{{ __('delete') }}</a>
                         <a class="btn btn-warning w-100 text-nowrap m-1"
-                            href="{{ route('track.edit', $track->track_id) }}">{{ __('edit') }}</a>
-                        @if ($track->track_status == 1)
-                            <a class="btn btn-warning w-100 text-nowrap m-1"
-                                href="{{ route('track.report', $track->track_id) }}">{{ __('report') }}</a>
-                        @endif
+                            href="{{ route('track.edit', $track->track_id) }}">{{ __('edit') }}</a>                      
                         <a class="btn bg-olive text-white w-100 text-nowrap m-1"
                             href="{{ route('track') }}">{{ __('back') }}</a>
                     </div>

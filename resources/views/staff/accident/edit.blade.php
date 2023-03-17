@@ -41,9 +41,11 @@
                                                 value="{{ $accident->acc_time }}">
                                         </div>
                                         <div class="row hide-on-desktop">
-                                            <input type="text" name="lat_pos" id="lat_pos" hidden/>
-                                            <input type="text" name="long_pos" id="long_pos" hidden/>
-                                            <a id="location_button" class="btn btn-success w-100 btn-lg" href='javascript:;' onclick="getLocationConstant()"><i id="loc_loading" class="fas fa-cog fa-spin"></i>
+                                            <input type="text" name="lat_pos" id="lat_pos" hidden />
+                                            <input type="text" name="long_pos" id="long_pos" hidden />
+                                            <a id="location_button" class="btn btn-success w-100 btn-lg" href='javascript:;'
+                                                onclick="getLocationConstant()"><i id="loc_loading"
+                                                    class="fas fa-cog fa-spin"></i>
                                                 {{ __('getCoordinates') }}</a>
                                             <p id="location_message" class="text-center text-sm"></p>
                                         </div>
@@ -119,7 +121,9 @@
                                         <h2 class="card-title">{{ __('victimCarImage') }}</h2>
                                     </div>
                                     <div class="card-body">
-                                        <a id="cameraButton1" class="btn btn-success mb-1 hide-on-desktop" href='javascript:;' onclick='takePicture();'><i class="fa fa-video"></i> 写真を撮る</a>
+                                        <a id="cameraButton1" class="btn btn-success mb-1 hide-on-desktop"
+                                            href='javascript:;' onclick='takePicture();'><i class="fa fa-video"></i>
+                                            写真を撮る</a>
                                         <div class="form-group row">
                                             <label class="col-form-label">1. {{ __('frontCar') }}</label>
                                             <div class="input-group" style="margin-bottom:10px">
@@ -163,8 +167,8 @@
                                                     <label class="custom-file-label"
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
-                                            </div>                                            
-                                            @if (isset($accidentMedias))                                                
+                                            </div>
+                                            @if (isset($accidentMedias))
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)
@@ -195,7 +199,7 @@
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
                                             </div>
-                                            @if (isset($accidentMedias))                                               
+                                            @if (isset($accidentMedias))
                                                 <div
                                                     style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px;">
                                                     @foreach ($accidentMedias as $accidentMedia)
@@ -259,13 +263,15 @@
                                         <h2 class="card-title">{{ __('carImage') }}</h2>
                                     </div>
                                     <div class="card-body">
-                                        <a id="cameraButton" class="btn btn-success mb-1 hide-on-desktop" href='javascript:;' onclick='takePicture();'><i class="fa fa-video"></i> 写真を撮る</a>
+                                        <a id="cameraButton" class="btn btn-success mb-1 hide-on-desktop"
+                                            href='javascript:;' onclick='takePicture();'><i class="fa fa-video"></i>
+                                            写真を撮る</a>
                                         <div class="form-group row">
                                             <label class="col-form-label">1. {{ __('frontCar') }}</label>
                                             <div class="input-group" style="margin-bottom:10px">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input"
-                                                        name="frontCar" accept="image/*">
+                                                    <input type="file" class="custom-file-input" name="frontCar"
+                                                        accept="image/*">
                                                     <label class="custom-file-label"
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
@@ -295,8 +301,8 @@
                                             <label class="col-form-label">2. {{ __('fullCar') }}</label>
                                             <div class="input-group" style="margin-bottom:10px">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input"
-                                                        name="fullCar" accept="image/*">
+                                                    <input type="file" class="custom-file-input" name="fullCar"
+                                                        accept="image/*">
                                                     <label class="custom-file-label"
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
@@ -326,8 +332,8 @@
                                             <label class="col-form-label">3. {{ __('damagePart') }}</label>
                                             <div class="input-group" style="margin-bottom:10px">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input"
-                                                        name="damagePart" accept="image/*">
+                                                    <input type="file" class="custom-file-input" name="damagePart"
+                                                        accept="image/*">
                                                     <label class="custom-file-label"
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
@@ -357,8 +363,8 @@
                                             <label class="col-form-label">4. {{ __('addImage') }}</label>
                                             <div class="input-group" style="margin-bottom:10px">
                                                 <div class="custom-file">
-                                                    <input type="file" class="custom-file-input"
-                                                        name="addImage[]" accept="image/*" multiple>
+                                                    <input type="file" class="custom-file-input" name="addImage[]"
+                                                        accept="image/*" multiple>
                                                     <label class="custom-file-label"
                                                         for="inputFile">{{ __('selectFile') }}</label>
                                                 </div>
@@ -404,11 +410,13 @@
 
                         <div class="row d-flex justify-content-center">
                             <button id="report" type="submit" value="report"
-                                class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1"
-                                style="max-width: 400px;" onclick="disableReport()">{{ __('report') }}</button>
-                            <button id="draft" type="submit" value="draft"
-                                class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1"
-                                style="max-width: 400px;" onclick="disableDraft()">{{ __('draft') }}</button>
+                                class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
+                                onclick="disableReport()">{{ __('report') }}</button>
+                            @if ($accident->acc_status == 1)
+                                <button id="draft" type="submit" value="draft"
+                                    class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1"
+                                    style="max-width: 400px;" onclick="disableDraft()">{{ __('draft') }}</button>
+                            @endif
                             <a class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
                                 href="{{ route('staff.accident.index') }}">{{ __('back') }}</a>
                         </div>
@@ -458,54 +466,52 @@
         $(function() {
             bsCustomFileInput.init();
         });
+
         function takePicture() {
             NativeAndroid.takePicture();
         }
     </script>
     <script>
         document.getElementById("loc_loading").hidden = true;
-        function getLocationConstant()
-        {
+
+        function getLocationConstant() {
             document.getElementById("loc_loading").hidden = false;
-            if(navigator.geolocation)
-            {
-                navigator.geolocation.getCurrentPosition(onGeoSuccess,onGeoError);
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
             } else {
                 alert("GPS対応してません。");
             }
         }
 
 
-        function onGeoSuccess(event)
-        {
-            document.getElementById("location_message").innerText =  "座標データを取得しました。";
-            document.getElementById("lat_pos").value =  event.coords.latitude;
-            document.getElementById("long_pos").value =  event.coords.longitude;
+        function onGeoSuccess(event) {
+            document.getElementById("location_message").innerText = "座標データを取得しました。";
+            document.getElementById("lat_pos").value = event.coords.latitude;
+            document.getElementById("long_pos").value = event.coords.longitude;
             document.getElementById("loc_loading").hidden = true;
         }
 
 
-        function onGeoError(event)
-        {
-//            alert("Error code " + event.code + ". " + event.message);
+        function onGeoError(event) {
+            //            alert("Error code " + event.code + ". " + event.message);
             document.getElementById("loc_loading").hidden = true;
             alert("座標データができませんでした。");
         }
     </script>
 
-<script>
-    function disableReport() {    
-        document.getElementById("action").value = 1;    
-        document.getElementById('accident-edit').submit();
-        report.disabled = true;
-        draft.disabled = true;
-    }
+    <script>
+        function disableReport() {
+            document.getElementById("action").value = 2;
+            document.getElementById('accident-edit').submit();
+            report.disabled = true;
+            draft.disabled = true;
+        }
 
-    function disableDraft() {        
-        document.getElementById("action").value = 2;
-        document.getElementById('accident-edit').submit();
-        report.disabled = true;
-        draft.disabled = true;
-    }
-</script>
+        function disableDraft() {
+            document.getElementById("action").value = 1;
+            document.getElementById('accident-edit').submit();
+            report.disabled = true;
+            draft.disabled = true;
+        }
+    </script>
 @stop

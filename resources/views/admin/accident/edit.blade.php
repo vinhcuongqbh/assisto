@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('staff.accident.update', $accident->acc_id) }}" method="post" id="accident-edit"
+                    <form action="{{ route('accident.update', $accident->acc_id) }}" method="post" id="accident-edit"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -149,7 +149,7 @@
                                                                 100%"
                                                                     src="/storage/{{ $accidentMedia->acc_media_url }}">
                                                                 <a
-                                                                    href="{{ route('staff.accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
+                                                                    href="{{ route('accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
                                                                         type="button" class="btn btn-sm bg-danger"
                                                                         style="float: right; margin-top: 5px">{{ __('delete') }}</button></a>
                                                             </div>
@@ -180,7 +180,7 @@
                                                                 100%"
                                                                     src="/storage/{{ $accidentMedia->acc_media_url }}">
                                                                 <a
-                                                                    href="{{ route('staff.accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
+                                                                    href="{{ route('accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
                                                                         type="button" class="btn btn-sm bg-danger"
                                                                         style="float: right; margin-top: 5px">{{ __('delete') }}</button></a>
                                                             </div>
@@ -211,7 +211,7 @@
                                                                 100%"
                                                                     src="/storage/{{ $accidentMedia->acc_media_url }}">
                                                                 <a
-                                                                    href="{{ route('staff.accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
+                                                                    href="{{ route('accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
                                                                         type="button" class="btn btn-sm bg-danger"
                                                                         style="float: right; margin-top: 5px">{{ __('delete') }}</button></a>
                                                             </div>
@@ -242,7 +242,7 @@
                                                                 100%"
                                                                     src="/storage/{{ $accidentMedia->acc_media_url }}">
                                                                 <a
-                                                                    href="{{ route('staff.accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
+                                                                    href="{{ route('accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
                                                                         type="button" class="btn btn-sm bg-danger"
                                                                         style="float: right; margin-top: 5px">{{ __('delete') }}</button></a>
                                                             </div>
@@ -288,7 +288,7 @@
                                                                 100%"
                                                                     src="/storage/{{ $accidentMedia->acc_media_url }}">
                                                                 <a
-                                                                    href="{{ route('staff.accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
+                                                                    href="{{ route('accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
                                                                         type="button" class="btn btn-sm bg-danger"
                                                                         style="float: right; margin-top: 5px">{{ __('delete') }}</button></a>
                                                             </div>
@@ -319,7 +319,7 @@
                                                                 100%"
                                                                     src="/storage/{{ $accidentMedia->acc_media_url }}">
                                                                 <a
-                                                                    href="{{ route('staff.accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
+                                                                    href="{{ route('accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
                                                                         type="button" class="btn btn-sm bg-danger"
                                                                         style="float: right; margin-top: 5px">{{ __('delete') }}</button></a>
                                                             </div>
@@ -350,7 +350,7 @@
                                                                 100%"
                                                                     src="/storage/{{ $accidentMedia->acc_media_url }}">
                                                                 <a
-                                                                    href="{{ route('staff.accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
+                                                                    href="{{ route('accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
                                                                         type="button" class="btn btn-sm bg-danger"
                                                                         style="float: right; margin-top: 5px">{{ __('delete') }}</button></a>
                                                             </div>
@@ -381,7 +381,7 @@
                                                                 100%"
                                                                     src="/storage/{{ $accidentMedia->acc_media_url }}">
                                                                 <a
-                                                                    href="{{ route('staff.accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
+                                                                    href="{{ route('accident.deleteImage', $accidentMedia->acc_media_id) }}"><button
                                                                         type="button" class="btn btn-sm bg-danger"
                                                                         style="float: right; margin-top: 5px">{{ __('delete') }}</button></a>
                                                             </div>
@@ -412,12 +412,10 @@
                             <button id="report" type="submit" name="action" value="report"
                                 class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
                                 onclick="disableReport()">{{ __('report') }}</button>
-                            <button id="draft" type="submit" name="action" value="draft"
-                                class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1" style="max-width: 400px;"
-                                onclick="disableDraft()">{{ __('draft') }}</button>
                             <a class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
-                                href="{{ route('staff.accident.index') }}">{{ __('back') }}</a>
+                                href="{{ route('accident.index') }}">{{ __('cancel') }}</a>
                         </div>
+
                     </form>
                 </div><!-- /.row -->
             </div><!-- comment -->
@@ -464,7 +462,7 @@
         $(function() {
             bsCustomFileInput.init();
         });
-        
+
         function takePicture() {
             NativeAndroid.takePicture();
         }
@@ -497,20 +495,11 @@
         }
     </script>
 
-
     <script>
         function disableReport() {
-            document.getElementById("action").value = 1;
-            document.getElementById('accident-create').submit();
-            report.disabled = true;
-            draft.disabled = true;
-        }
-
-        function disableDraft() {
             document.getElementById("action").value = 2;
-            document.getElementById('accident-create').submit();
+            document.getElementById('accident-edit').submit();
             report.disabled = true;
-            draft.disabled = true;
         }
     </script>
 @stop

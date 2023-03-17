@@ -20,7 +20,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('staff.accident.store') }}" method="post" id="accident-create"
+                    <form action="{{ route('accident.store') }}" method="post" id="accident-create"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">
@@ -234,12 +234,10 @@
                             <button id="report" type="submit" value="report"
                                 class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
                                 onclick="disableReport()">{{ __('report') }}</button>
-                            <button id="draft" type="submit" value="draft"
-                                class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1" style="max-width: 400px;"
-                                onclick="disableDraft()">{{ __('draft') }}</button>
                             <a class="btn btn-lg btn-danger text-white w-100 text-nowrap m-1" style="max-width: 400px;"
-                                href="{{ route('staff.accident.index') }}">{{ __('cancel') }}</a>
+                                href="{{ route('accident.index') }}">{{ __('cancel') }}</a>
                         </div>
+
                     </form>
                 </div><!-- /.row -->
             </div><!-- comment -->
@@ -286,7 +284,7 @@
         $(function() {
             bsCustomFileInput.init();
         });
-        
+
         function takePicture() {
             NativeAndroid.takePicture();
         }
@@ -319,20 +317,12 @@
         }
     </script>
 
-
     <script>
         function disableReport() {
-            document.getElementById("action").value = 1;
-            document.getElementById('accident-create').submit();
-            report.disabled = true;
-            draft.disabled = true;
-        }
-
-        function disableDraft() {
             document.getElementById("action").value = 2;
             document.getElementById('accident-create').submit();
             report.disabled = true;
-            draft.disabled = true;
         }
     </script>
+
 @stop

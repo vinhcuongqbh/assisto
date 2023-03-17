@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class TrackController extends Controller
 {
@@ -20,7 +21,8 @@ class TrackController extends Controller
     public function index()
     {
         if (Auth::user()->roleId != 3) {
-            $track = Track::leftjoin('moz_users', 'moz_users.id', 'asahi_track_report.staff_id')
+            $track = Track::where('track_status', 2)
+                ->leftjoin('moz_users', 'moz_users.id', 'asahi_track_report.staff_id')
                 ->leftjoin('asahi_center', 'asahi_center.centerId', 'moz_users.centerId')
                 ->leftjoin('asahi_track_report_status', 'asahi_track_report_status.track_status_id', 'asahi_track_report.track_status')
                 ->select('asahi_track_report.*', 'moz_users.userId', 'moz_users.name', 'asahi_center.centerName', 'asahi_track_report_status.track_status_name')
@@ -72,14 +74,7 @@ class TrackController extends Controller
         $track->track_content = $request->content;
         $track->staff_id = Auth::id();
         $track->create_date = Carbon::now();
-        switch ($request->input('action')) {
-            case 'draft':
-                $track->track_status = 1;
-                break;
-            case 'report':
-                $track->track_status = 2;
-                break;
-        }
+        $track->track_status = $request->action;
         $track->save();
 
         //Xử lý file tải lên
@@ -93,10 +88,13 @@ class TrackController extends Controller
                 $check = in_array($extension, $allowedfileExtension);
                 if ($check) {
                     if (in_array($extension, $imgExtension)) {
-                        echo "img";
-                        $path = $file->store('public/File');
+                        $imgName = Auth::user()->id . uniqid();
+                        $img = Image::make($file->path());
+                        $img->resize(2000, null, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })->save('../public/storage/File/' . $imgName . '.' . $extension);
+                        $path = "public/File/" . $imgName . "." . $extension;
                     } else {
-                        echo "not img";
                         $path = $file->storeAs('public/File', $filename);
                     }
                     $path = substr($path, strlen('public/'));
@@ -177,14 +175,7 @@ class TrackController extends Controller
         $track->track_content = $request->content;
         $track->staff_id = Auth::id();
         $track->last_update_date = Carbon::now();
-        switch ($request->input('action')) {
-            case 'draft':
-                $track->track_status = 1;
-                break;
-            case 'report':
-                $track->track_status = 2;
-                break;
-        }
+        $track->track_status = $request->action;
         $track->save();
 
         //Xử lý ảnh tải lên
@@ -199,10 +190,13 @@ class TrackController extends Controller
                 $check = in_array($extension, $allowedfileExtension);
                 if ($check) {
                     if (in_array($extension, $imgExtension)) {
-                        echo "img";
-                        $path = $file->store('public/File');
+                        $imgName = Auth::user()->id . uniqid();
+                        $img = Image::make($file->path());
+                        $img->resize(2000, null, function ($constraint) {
+                            $constraint->aspectRatio();
+                        })->save('../public/storage/File/' . $imgName . '.' . $extension);
+                        $path = "public/File/" . $imgName . "." . $extension;
                     } else {
-                        echo "not img";
                         $path = $file->storeAs('public/File', $filename);
                     }
                     $path = substr($path, strlen('public/'));
@@ -230,7 +224,7 @@ class TrackController extends Controller
         $track = Track::where('track_id', $id)->first();
         $this->deleteTrackImages($track->track_id);
         $track->delete();
-        
+
         if (Auth::user()->roleId != 3) return redirect()->route('track');
         else return redirect()->route('staff.track.index');
     }

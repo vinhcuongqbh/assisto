@@ -39,7 +39,7 @@
                             <div class="col-sm-9">
                                 <div class="input-group mb-3">
                                     <input id="asaboUrl" type="text" class="form-control"
-                                        value="https://asabo.net/staff/store/{{ $store->storeId }}/show" disabled>
+                                        value="https://asabo.net/admin/store/{{ $store->storeId }}/show" disabled>
                                     <div class="input-group-append">
                                         <a onclick="copyText()" class="btn btn-info"><i class="fas fa-copy"></i> Copy</a>
                                     </div>
