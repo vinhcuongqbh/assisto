@@ -370,7 +370,7 @@
                                 class="btn btn-lg bg-warning text-white w-100 text-nowrap m-1"
                                 style="max-width: 400px;">{{ __('edit') }}</a>
                             <a class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
-                                href="{{ route('accident.index') }}">{{ __('back') }}</a>
+                                href="{{ route('accident') }}">{{ __('back') }}</a>
                         </div>
 
                     </form>
