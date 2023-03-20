@@ -233,8 +233,7 @@
                         <div class="row d-flex justify-content-center">
                             <button id="report" type="submit" value="report"
                                 class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
-                                onclick="disableReport()"><i id="loc_loading"
-                                class="fas fa-cog fa-spin"></i>{{ __('report') }}</button>
+                                onclick="disableReport()">{{ __('report') }}</button>
                             <a class="btn btn-lg btn-danger text-white w-100 text-nowrap m-1" style="max-width: 400px;"
                                 href="{{ route('accident') }}">{{ __('cancel') }}</a>
                         </div>
@@ -320,8 +319,6 @@
 
     <script>
         function disableReport() {
-            //document.getElementById("loc_loading").hidden = false;
-
             document.getElementById("action").value = 2;
             document.getElementById('accident-create').submit();
             report.disabled = true;
