@@ -413,7 +413,7 @@
                                 class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
                                 onclick="disableReport()">{{ __('report') }}</button>
                             <a class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1" style="max-width: 400px;"
-                                href="{{ route('accident.index') }}">{{ __('cancel') }}</a>
+                                href="{{ route('accident') }}">{{ __('cancel') }}</a>
                         </div>
 
                     </form>
