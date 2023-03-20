@@ -41,7 +41,8 @@
                                     <td style="width: 70%">
                                         <div class="input-group">
                                             <input id="asaboUrl" type="text" class="form-control"
-                                                   value="https://asabo.net/staff/store/{{ $store->storeId }}/show" disabled="true">
+                                                value="https://asabo.net/staff/store/{{ $store->storeId }}/show"
+                                                disabled="true">
                                             <span class="input-group-append">
                                                 <button onclick="copyText()" class="btn btn-info btn-sm">Copy</button>
                                             </span>
@@ -147,37 +148,34 @@
                             </tbody>
                         </table>
 
-                        <div class="form-group row m-0 p-0">
-                            @if (isset($store))
-                                <div class="col-12"><canvas id="the-canvas"></canvas></div>
-                                {{-- <span hidden id="page_count"></span> --}}
-                                <div class="col-12" style="padding: 5px 10px 10px 10px; text-align: center;">
-                                    <button type="button" class="btn btn-outline-default" id="prev">
-                                        {{ __('previous') }}</button>&ensp;
-                                    <input id="page_num" value="" onchange="onOfPage(this);"
-                                        style="width: 40px; text-align: right;" /> / <span id="page_count"></span>&ensp;
-                                    <button type="button" class="btn btn-outline-default"
-                                        id="next">{{ __('next') }}</button>
-                                </div>
-                                <?php
-                                //Khai báo biến lấy nội dung file và encode base64
-                                if ($store->storePdfLink != null) {
+                        <?php $getPDF = base64_encode(''); ?>
+                        @if ($store->storePdfLink != null)
+                            @if (Storage::exists('public/' . $store->storePdfLink))
+                                <div class="form-group row m-0 p-0">
+                                    <div class="col-12"><canvas id="the-canvas"></canvas></div>
+                                    {{-- <span hidden id="page_count"></span> --}}
+                                    <div class="col-12" style="padding: 5px 10px 10px 10px; text-align: center;">
+                                        <button type="button" class="btn btn-outline-default" id="prev">
+                                            {{ __('previous') }}</button>&ensp;
+                                        <input id="page_num" value="" onchange="onOfPage(this);"
+                                            style="width: 40px; text-align: right;" /> / <span id="page_count"></span>&ensp;
+                                        <button type="button" class="btn btn-outline-default"
+                                            id="next">{{ __('next') }}</button>
+                                    </div>
+                                    <?php
+                                    //Khai báo biến lấy nội dung file và encode base64
                                     $getPDF = base64_encode(file_get_contents('storage/' . $store->storePdfLink));
-                                } else {
-                                    $getPDF = '0';
-                                }
-                                ?>
+                                    ?>
+                                </div>
                             @endif
-                        </div>
+                        @endif
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer d-flex justify-content-center">
-                        <a class="btn btn-lg btn-danger text-white w-100 text-nowrap m-1"
-                            href="{{ route('staff.store.delete', $store->storeId) }}"onclick="return confirm('- この店舗を削除しますか?:')">{{ __('delete') }}</a>
                         <a class="btn btn-lg btn-warning text-white w-100 text-nowrap m-1"
                             href="{{ route('staff.store.edit', $store->storeId) }}">{{ __('edit') }}</a>
-                        <button onclick="javascript:history.back()"
-                            class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1">{{ __('back') }}</button>
+                        <a class="btn btn-lg bg-olive text-white w-100 text-nowrap m-1"
+                            href="{{ route('staff.store') }}">{{ __('back') }}</a>
                     </div>
                 </div>
                 <!-- /.card -->
@@ -275,11 +273,11 @@
 
         function copyText() {
             const userAgent = navigator.userAgent;
-            if(/Asabo/i.test(userAgent)){
+            if (/Asabo/i.test(userAgent)) {
                 var copyText = document.getElementById("asaboUrl");
                 NativeAndroid.copyToClipboard(copyText.value);
                 alert("「" + copyText.value + "」URLをコピーしました");
-            }else{
+            } else {
                 // Get the text field
                 var copyText = document.getElementById("asaboUrl");
 

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Storage;
 
 
 class StoreController extends Controller
-{
+{  
     public function index()
     {
         $store = Store::leftjoin('asahi_center', 'asahi_center.centerId', 'asahi_store.centerId')

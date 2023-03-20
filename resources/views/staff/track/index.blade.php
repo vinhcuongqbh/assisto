@@ -20,7 +20,7 @@
                         </div>
                     </div>
 
-                    <div class="card-body  p-1">
+                    <div class="card-body p-1">
                         <!-- form start -->
                         {{-- <form class="form-horizontal" action="{{ route('staff.track.search') }}" method="post"
                             id="track-search">
@@ -59,6 +59,8 @@
                                                 <li><strong>{{ __('date') }}:</strong> {{ $track->track_date }}</li>
                                                 <li><strong>{{ __('time') }}:</strong> {{ $track->track_time }}</li>
                                                 <li><strong>{{ __('place') }}:</strong> {{ $track->track_place }}</li>
+                                                <li><strong>{{ __('title') }}:</strong> {{ $track->track_title }}</li>
+                                                <li><strong>{{ __('classify') }}:</strong> {{ $track->track_type_name }}</li>
                                             </ul>
 
                                         </td>

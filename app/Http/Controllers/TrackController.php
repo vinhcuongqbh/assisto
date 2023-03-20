@@ -31,8 +31,9 @@ class TrackController extends Controller
             return view('admin.track.index', ['tracks' => $track]);
         } else {
             $track = Track::where('staff_id', Auth::id())
-                ->join('asahi_track_report_status', 'asahi_track_report_status.track_status_id', 'asahi_track_report.track_status')
-                ->select('asahi_track_report.*', 'asahi_track_report_status.track_status_name')
+                ->leftjoin('asahi_track_report_status', 'asahi_track_report_status.track_status_id', 'asahi_track_report.track_status')
+                ->leftjoin('asahi_track_report_type', 'asahi_track_report_type.track_type_id', 'asahi_track_report.track_type_id')
+                ->select('asahi_track_report.*', 'asahi_track_report_status.track_status_name', 'asahi_track_report_type.track_type_name')
                 ->orderBy('asahi_track_report.track_date', 'desc')
                 ->get();
             return view('staff.track.index', ['tracks' => $track]);

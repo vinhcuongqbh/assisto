@@ -105,7 +105,7 @@
                                             </a>
                                         </div>
                                         <div class="col-md-6 p-1">                                            
-                                                <a class="btn bg-olive text-white w-100 text-nowrap"
+                                                <a class="btn bg-danger text-white w-100 text-nowrap"
                                                     href="{{ route('store.delete', $store->storeId) }}"
                                                     onclick="return confirm('{{ __('deleteStore') }}')">
                                                     {{ __('delete') }}

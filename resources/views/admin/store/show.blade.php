@@ -153,34 +153,35 @@
                                 <textarea id="comment" name="comment" class="form-control" disabled>{{ $store->comment }}</textarea>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <div class="col-sm-12">
-                                @if (isset($store))
-                                    <div class="col-12"><canvas class="the-canvas" id="the-canvas"></canvas></div>
-                                    {{-- <span hidden id="page_count"></span> --}}
-                                    <div class="col-12" style="padding: 5px 10px 10px 10px; text-align: center;">
-                                        <button type="button" class="btn btn-outline-default" id="prev">
-                                            {{ __('previous') }}</button>&ensp;
-                                        <input id="page_num" value="" onchange="onOfPage(this);"
-                                            style="width: 40px; text-align: right;" /> / <span
-                                            id="page_count"></span>&ensp;
-                                        <button type="button" class="btn btn-outline-default"
-                                            id="next">{{ __('next') }}</button>
-                                    </div>
-                                    <?php
-                                    //Khai báo biến lấy nội dung file và encode base64
-                                    if ($store->storePdfLink != null) {
+                        <?php $getPDF = base64_encode(''); ?>
+                        @if ($store->storePdfLink != null)
+                            @if (Storage::exists('public/' . $store->storePdfLink))
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <div class="col-12"><canvas class="the-canvas" id="the-canvas"></canvas></div>
+                                        <div class="col-12" style="padding: 5px 10px 10px 10px; text-align: center;">
+                                            <button type="button" class="btn btn-outline-default" id="prev">
+                                                {{ __('previous') }}</button>&ensp;
+                                            <input id="page_num" value="" onchange="onOfPage(this);"
+                                                style="width: 40px; text-align: right;" /> / <span
+                                                id="page_count"></span>&ensp;
+                                            <button type="button" class="btn btn-outline-default"
+                                                id="next">{{ __('next') }}</button>
+                                        </div>
+                                        <?php
+                                        //Khai báo biến lấy nội dung file và encode base64
                                         $getPDF = base64_encode(file_get_contents('storage/' . $store->storePdfLink));
-                                    } else {
-                                        $getPDF = '0';
-                                    }
-                                    ?>
-                                @endif
-                            </div>
-                        </div>
+                                        ?>
+                                    </div>
+                                </div>
+                            @endif
+                        @endif
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer d-flex justify-content-center">
+                        <a class="btn btn-danger w-100 text-nowrap m-1"
+                            href="{{ route('store.delete', $store->storeId) }}"
+                            onclick="return confirm('{{ __('deleteStore') }}')">{{ __('delete') }}</a>
                         <a class="btn btn-warning w-100 text-nowrap m-1"
                             href="{{ route('store.edit', $store->storeId) }}">{{ __('edit') }}</a>
                         <a class="btn bg-olive text-white w-100 text-nowrap m-1"

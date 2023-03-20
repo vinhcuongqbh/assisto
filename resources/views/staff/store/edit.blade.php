@@ -161,25 +161,28 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    @if (isset($store->storePdfLink))
-                                        <div class="col-12"><canvas id="the-canvas"></canvas></div>
-                                        {{-- <span hidden id="page_count"></span> --}}
-                                        <div class="col-12" style="padding: 5px 10px 10px 10px; text-align: center;">
-                                            <button type="button" class="btn btn-outline-default" id="prev">
-                                                {{ __('previous') }}</button>&ensp;
-                                            <input id="page_num" value="" onchange="onOfPage(this);"
-                                                style="width: 40px; text-align: right;" /> / <span
-                                                id="page_count"></span>&ensp;
-                                            <button type="button" class="btn btn-outline-default"
-                                                id="next">{{ __('next') }}</button>
+                                <?php $getPDF = base64_encode(''); ?>
+                                @if ($store->storePdfLink != null)
+                                    @if (Storage::exists('public/' . $store->storePdfLink))
+                                        <div class="col-12">
+                                            <div class="col-12"><canvas id="the-canvas"></canvas></div>
+                                            {{-- <span hidden id="page_count"></span> --}}
+                                            <div class="col-12" style="padding: 5px 10px 10px 10px; text-align: center;">
+                                                <button type="button" class="btn btn-outline-default" id="prev">
+                                                    {{ __('previous') }}</button>&ensp;
+                                                <input id="page_num" value="" onchange="onOfPage(this);"
+                                                    style="width: 40px; text-align: right;" /> / <span
+                                                    id="page_count"></span>&ensp;
+                                                <button type="button" class="btn btn-outline-default"
+                                                    id="next">{{ __('next') }}</button>
+                                            </div>
+                                            <?php
+                                            //Khai báo biến lấy nội dung file và encode base64
+                                            $getPDF = base64_encode(file_get_contents('storage/' . $store->storePdfLink));
+                                            ?>
                                         </div>
-                                        <?php
-                                        //Khai báo biến lấy nội dung file và encode base64
-                                        $getPDF = base64_encode(file_get_contents('storage/' . $store->storePdfLink));
-                                        ?>
                                     @endif
-                                </div>
+                                @endif
                             </div>
                         </div>
                         <!-- /.card-body -->
