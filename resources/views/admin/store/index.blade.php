@@ -104,20 +104,13 @@
                                                     class="btn bg-warning text-white w-100 text-nowrap">{{ __('edit') }}</button>
                                             </a>
                                         </div>
-                                        <div class="col-md-6 p-1">
-                                            @if ($store->isDeleted == 0)
+                                        <div class="col-md-6 p-1">                                            
                                                 <a class="btn bg-olive text-white w-100 text-nowrap"
                                                     href="{{ route('store.delete', $store->storeId) }}"
                                                     onclick="return confirm('{{ __('deleteStore') }}')">
-                                                    {{ __('enable') }}
+                                                    {{ __('delete') }}
                                                 </a>
-                                            @else
-                                                <a class="btn bg-danger text-white w-100 text-nowrap"
-                                                    href="{{ route('store.restore', $store->storeId) }}"
-                                                    onclick="return confirm('{{ __('restoreStore') }}')">
-                                                    {{ __('disable') }}
-                                                </a>
-                                            @endif
+                                           
                                         </div>
                                     </div>
                                 </td>

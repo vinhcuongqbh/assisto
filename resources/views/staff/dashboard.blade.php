@@ -22,13 +22,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <a class="btn btn-lg bg-olive text-white w-100 p-3" href="/staff/store">{{ __('store') }}</a>
+                        <a class="btn btn-lg bg-olive text-white w-100 p-3" href="/staff/store">{{ __('storeManagement') }}</a>
                     </div>
                     <div class="form-group">
-                        <a class="btn btn-lg bg-olive text-white w-100 p-3" href="/staff/accident">{{ __('accident') }}</a>
+                        <a class="btn btn-lg bg-olive text-white w-100 p-3" href="/staff/accident">{{ __('accidentReports') }}</a>
                     </div>
                     <div class="form-group">
-                        <a class="btn btn-lg bg-olive text-white w-100 p-3" href="/staff/track">{{ __('track') }}</a>
+                        <a class="btn btn-lg bg-olive text-white w-100 p-3" href="/staff/track">{{ __('trackReports') }}</a>
                     </div>
                     <div class="form-group">
                         <a class="btn btn-lg bg-olive text-white w-100 p-3" href="/staff/guide">{{ __('guide') }}</a>

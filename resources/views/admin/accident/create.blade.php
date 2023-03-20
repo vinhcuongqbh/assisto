@@ -21,7 +21,7 @@
                         </div>
                     @endif
                     <form action="{{ route('accident.store') }}" method="post" id="accident-create"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" onSubmit="report.disabled = true;">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
@@ -33,7 +33,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label">{{ __('date') }}</label>
                                             <input type="date" class="form-control" id="date" name="date"
-                                                value="{{ old('date') }}">
+                                                value="{{ old('date') }}" onclick="report.disabled = false">
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label">{{ __('time') }}</label>
@@ -311,7 +311,7 @@
 
 
         function onGeoError(event) {
-            //            alert("Error code " + event.code + ". " + event.message);
+            //alert("Error code " + event.code + ". " + event.message);
             document.getElementById("loc_loading").hidden = true;
             alert("座標データができませんでした。");
         }
@@ -320,9 +320,8 @@
     <script>
         function disableReport() {
             document.getElementById("action").value = 2;
-            document.getElementById('accident-create').submit();
-            report.disabled = true;
         }
     </script>
+
 
 @stop

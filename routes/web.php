@@ -22,6 +22,13 @@ use App\Models\Setting;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+Route::get('/test', function () {    
+    return view('test');
+});
+
+
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('', function () {
         return redirect()->route('dashboard');
@@ -65,7 +72,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('{id}/edit', [StoreController::class, 'edit'])->name('store.edit');
         Route::post('{id}/update', [StoreController::class, 'update'])->name('store.update');
         Route::get('{id}/delete', [StoreController::class, 'destroy'])->name('store.delete');
-        Route::get('{id}/restore', [StoreController::class, 'restore'])->name('store.restore');
+        // Route::get('{id}/restore', [StoreController::class, 'restore'])->name('store.restore');
         Route::post('search', [StoreController::class, 'search'])->name('store.search');
     });
 

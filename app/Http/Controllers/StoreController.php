@@ -8,9 +8,7 @@ use Illuminate\Validation\Rule;
 use Carbon\Carbon;
 use App\Models\Store;
 use App\Models\Center;
-use App\Models\User;
-use App\Models\StoreMedia;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 
 
@@ -31,7 +29,8 @@ class StoreController extends Controller
 
     public function create()
     {
-        $center = Center::all();
+        $center = (new CenterController)->queryActiveCenter();
+
         if (Auth::user()->roleId != 3) return view('admin.store.create', ['center' => $center]);
         else return view('staff.store.create', ['center' => $center]);
     }
@@ -110,7 +109,7 @@ class StoreController extends Controller
     public function edit($id)
     {
         $store = Store::where('storeId', $id)->first();
-        $center = Center::all();
+        $center = (new CenterController)->queryActiveCenter();
 
         if (Auth::user()->roleId != 3)  return view('admin.store.edit', ['store' => $store, 'center' => $center]);
         else return view('staff.store.edit', ['store' => $store, 'center' => $center]);
@@ -165,24 +164,27 @@ class StoreController extends Controller
     {
         //Tìm Cửa hàng 
         $store = Store::where('storeId', $id)->first();
-        $store->isDeleted = 1;
-        $store->save();
 
+        if (Storage::exists('public/' . $store->storePdfLink)) {
+            Storage::delete('public/' . $store->storePdfLink);
+        }
+        $store->delete();
+        
         if (Auth::user()->roleId != 3) return redirect()->route('store');
         else return redirect()->route('staff.store');
     }
 
 
-    public function restore($id)
-    {
-        //Tìm Cửa hàng 
-        $store = Store::where('storeId', $id)->first();
-        $store->isDeleted = 0;
-        $store->save();
+    // public function restore($id)
+    // {
+    //     //Tìm Cửa hàng 
+    //     $store = Store::where('storeId', $id)->first();
+    //     $store->isDeleted = 0;
+    //     $store->save();
 
-        if (Auth::user()->roleId != 3) return redirect()->route('store');
-        else return redirect()->route('staff.store');
-    }
+    //     if (Auth::user()->roleId != 3) return redirect()->route('store');
+    //     else return redirect()->route('staff.store');
+    // }
 
 
     public function search(Request $request)

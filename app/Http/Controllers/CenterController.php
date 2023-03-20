@@ -9,11 +9,17 @@ use Carbon\Carbon;
 
 class CenterController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //Hàm query các Center đang còn hoạt động
+    public function queryActiveCenter()
+    {
+        $center = Center::where('isDeleted', 0)
+            ->orwhere('isDeleted', null)
+            ->orderBy('centerId', 'asc')->get();
+        return $center;
+    }
+
+
+    //Hàm query tất các Center (đang hoạt động và dừng hoạt động)
     public function index()
     {
         $center = Center::orderBy('centerId', 'asc')->get();
@@ -21,12 +27,14 @@ class CenterController extends Controller
     }
 
 
+    //Hàm tạo Center mới
     public function create()
     {
         return view('admin.center.create');
     }
 
 
+    //Hàm lưu thông tin Center mới vào CSDL
     public function store(Request $request)
     {
         //Kiểm tra thông tin đầu vào
@@ -49,6 +57,7 @@ class CenterController extends Controller
     }
 
 
+    //Hàm hiển thị thông tin của Center
     public function show($id)
     {
         $center = Center::where('centerId', $id)->first();
@@ -56,6 +65,7 @@ class CenterController extends Controller
     }
 
 
+    //Hàm sửa đổi thông tin của Center
     public function edit($id)
     {
         $center = Center::where('centerId', $id)->first();
@@ -64,6 +74,7 @@ class CenterController extends Controller
     }
 
 
+    //Hàm lưu thông tin sửa đổi của Center
     public function update(Request $request, $id)
     {
         //Tìm thông tin Trung tâm
@@ -89,6 +100,8 @@ class CenterController extends Controller
         return redirect()->route('center.show', ['id' => $center->centerId]);
     }
 
+
+    //Hàm Xóa Center
     public function destroy($id)
     {
         //Tìm Cửa hàng 
@@ -100,9 +113,9 @@ class CenterController extends Controller
     }
 
 
+    //Hàm phục hồi lại Center
     public function restore($id)
     {
-        //Tìm Cửa hàng 
         $center = Center::where('centerId', $id)->first();
         $center->isDeleted = 0;
         $center->save();
@@ -111,9 +124,10 @@ class CenterController extends Controller
     }
 
 
+    //Hàm tìm kiếm Center
     public function search(Request $request)
     {
-        $center = Center::orderBy('centerId','asc');
+        $center = Center::orderBy('centerId', 'asc');
 
         if (isset($request->centerID)) $center->where('centerId', $request->centerID);
         if (isset($request->centerName)) $center->where('centerName', 'LIKE', '%' . $request->centerName . '%');

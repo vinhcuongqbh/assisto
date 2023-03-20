@@ -21,7 +21,7 @@
                         </div>
                     @endif
                     <form action="{{ route('accident.update', $accident->acc_id) }}" method="post" id="accident-edit"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" onSubmit="report.disabled = true;">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
@@ -33,7 +33,7 @@
                                         <div class="form-group row">
                                             <label class="col-form-label">{{ __('date') }}</label>
                                             <input type="date" class="form-control" id="date" name="date"
-                                                value="{{ $accident->acc_date }}">
+                                                value="{{ $accident->acc_date }}" onclick="report.disabled = false">
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-form-label">{{ __('time') }}</label>
@@ -498,8 +498,6 @@
     <script>
         function disableReport() {
             document.getElementById("action").value = 2;
-            document.getElementById('accident-edit').submit();
-            report.disabled = true;
         }
     </script>
 @stop

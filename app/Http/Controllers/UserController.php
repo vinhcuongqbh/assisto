@@ -40,8 +40,7 @@ class UserController extends Controller
 
     public function create()
     {
-
-        $center = Center::all();
+        $center = (new CenterController)->queryActiveCenter();
         $userRole = Role::where('roleId', '!=', 1)->get();
 
 
@@ -98,7 +97,7 @@ class UserController extends Controller
     {
         $user = User::where('userId', $id)->first();
 
-        $center = Center::all();
+        $center = (new CenterController)->queryActiveCenter();
         $userRole = Role::where('roleId', '!=', 1)->get();
 
 

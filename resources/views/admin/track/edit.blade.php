@@ -24,7 +24,7 @@
                         </div>
                     @endif
                     <form action="{{ route('track.update', $track->track_id) }}" method="post" id="track-edit"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" onSubmit="report.disabled = true;">
                         @csrf
                         <div class="card-body">
                             <div class="form-group row">
@@ -37,7 +37,7 @@
                                 <label class="col-12 col-md-2 col-form-label">{{ __('date') }}</label>
                                 <div class="col-12 col-md-10">
                                     <input type="date" class="form-control" id="date" name="date"
-                                        value="{{ $track->track_date }}">
+                                        value="{{ $track->track_date }}" onclick="report.disabled = false">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -213,8 +213,6 @@
     <script>
         function disableReport() {
             document.getElementById("action").value = 2;
-            document.getElementById('track-edit').submit();
-            report.disabled = true;
         }
     </script>
 

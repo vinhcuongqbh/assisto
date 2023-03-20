@@ -23,13 +23,15 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ route('track.store') }}" method="post" id="track-create" enctype="multipart/form-data">
+                    <form action="{{ route('track.store') }}" method="post" id="track-create" enctype="multipart/form-data"
+                        onSubmit="report.disabled = true;">
                         @csrf
                         <div class="card-body">
                             <div class="form-group row">
                                 <label class="col-12 col-md-2 col-form-label">{{ __('date') }}</label>
                                 <div class="col-12 col-md-10">
-                                    <input type="date" class="form-control" id="date" name="date">
+                                    <input type="date" class="form-control" id="date" name="date"
+                                        onclick="report.disabled = false">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -150,8 +152,6 @@
     <script>
         function disableReport() {
             document.getElementById("action").value = 2;
-            document.getElementById('track-create').submit();
-            report.disabled = true;
         }
     </script>
 
